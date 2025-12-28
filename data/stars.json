@@ -1,9 +1,605 @@
 {
   "metadata": {
-    "lastUpdated": null,
+    "lastUpdated": "2025-12-28T22:27:19.897Z",
     "username": "nicolasbagatello",
-    "totalStars": 0,
+    "totalStars": 24,
     "version": "1.0"
   },
-  "repositories": []
+  "repositories": [
+    {
+      "id": 1080976138,
+      "name": "awesome-llm-skills",
+      "full_name": "Prat011/awesome-llm-skills",
+      "owner": {
+        "login": "Prat011",
+        "avatar_url": "https://avatars.githubusercontent.com/u/67639393?v=4"
+      },
+      "html_url": "https://github.com/Prat011/awesome-llm-skills",
+      "description": "A curated list of awesome LLM and AI Agent Skills, resources and tools for customising AI Agent workflows - that works with Claude Code, Codex, Gemini CLI and your custom AI Agents",
+      "language": "Python",
+      "stargazers_count": 226,
+      "topics": [
+        "anthropic",
+        "awesome-list",
+        "awesome-lists",
+        "claude-code",
+        "claude-skills",
+        "claude-skills-creator",
+        "codex",
+        "codex-cli",
+        "gemini",
+        "gemini-cli",
+        "llama",
+        "llms",
+        "openai",
+        "opencode",
+        "qwen",
+        "qwen-coder",
+        "skills"
+      ],
+      "created_at": "2025-10-22T06:15:37Z",
+      "updated_at": "2025-12-28T22:11:19Z",
+      "starred_at": "2025-12-28T20:20:09Z"
+    },
+    {
+      "id": 997220241,
+      "name": "RAG-Anything",
+      "full_name": "HKUDS/RAG-Anything",
+      "owner": {
+        "login": "HKUDS",
+        "avatar_url": "https://avatars.githubusercontent.com/u/118165258?v=4"
+      },
+      "html_url": "https://github.com/HKUDS/RAG-Anything",
+      "description": "\"RAG-Anything: All-in-One RAG Framework\"",
+      "language": "Python",
+      "stargazers_count": 11582,
+      "topics": [
+        "multi-modal-rag",
+        "retrieval-augmented-generation"
+      ],
+      "created_at": "2025-06-06T06:47:29Z",
+      "updated_at": "2025-12-28T22:15:26Z",
+      "starred_at": "2025-12-27T22:30:01Z"
+    },
+    {
+      "id": 775136980,
+      "name": "medium-unlocker",
+      "full_name": "inulute/medium-unlocker",
+      "owner": {
+        "login": "inulute",
+        "avatar_url": "https://avatars.githubusercontent.com/u/110729127?v=4"
+      },
+      "html_url": "https://github.com/inulute/medium-unlocker",
+      "description": "Medium Unlocker is an android app designed to access Medium articles without any paywalls. ",
+      "language": "Java",
+      "stargazers_count": 232,
+      "topics": [
+        "bypass-paywalls",
+        "medium",
+        "medium-article",
+        "medium-articles",
+        "medium-unlimited",
+        "medium-unlocker"
+      ],
+      "created_at": "2024-03-20T20:35:16Z",
+      "updated_at": "2025-12-28T22:20:52Z",
+      "starred_at": "2025-12-27T21:54:33Z"
+    },
+    {
+      "id": 954589318,
+      "name": "square-ui",
+      "full_name": "ln-dev7/square-ui",
+      "owner": {
+        "login": "ln-dev7",
+        "avatar_url": "https://avatars.githubusercontent.com/u/62269693?v=4"
+      },
+      "html_url": "https://github.com/ln-dev7/square-ui",
+      "description": "Collection of beautifully crafted open-source layouts UI built with shadcn/ui.",
+      "language": "TypeScript",
+      "stargazers_count": 3021,
+      "topics": [
+        "layout",
+        "shadcn-ui",
+        "template"
+      ],
+      "created_at": "2025-03-25T10:09:25Z",
+      "updated_at": "2025-12-28T21:52:32Z",
+      "starred_at": "2025-12-27T03:28:24Z"
+    },
+    {
+      "id": 1048065319,
+      "name": "claude-mem",
+      "full_name": "thedotmack/claude-mem",
+      "owner": {
+        "login": "thedotmack",
+        "avatar_url": "https://avatars.githubusercontent.com/u/683968?v=4"
+      },
+      "html_url": "https://github.com/thedotmack/claude-mem",
+      "description": "A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.",
+      "language": "TypeScript",
+      "stargazers_count": 9300,
+      "topics": [
+        "ai",
+        "ai-agents",
+        "ai-memory",
+        "anthropic",
+        "artificial-intelligence",
+        "chromadb",
+        "claude",
+        "claude-agent-sdk",
+        "claude-agents",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-skills",
+        "embeddings",
+        "long-term-memory",
+        "mem0",
+        "memory-engine",
+        "openmemory",
+        "rag",
+        "sqlite",
+        "supermemory"
+      ],
+      "created_at": "2025-08-31T20:50:03Z",
+      "updated_at": "2025-12-28T21:40:35Z",
+      "starred_at": "2025-12-26T16:40:57Z"
+    },
+    {
+      "id": 1114011551,
+      "name": "quint-code",
+      "full_name": "m0n0x41d/quint-code",
+      "owner": {
+        "login": "m0n0x41d",
+        "avatar_url": "https://avatars.githubusercontent.com/u/78234165?v=4"
+      },
+      "html_url": "https://github.com/m0n0x41d/quint-code",
+      "description": "Structured reasoning framework for Claude Code, Gemini, Cursor, and Codex — hypothesis-driven decision making with auditable evidence trails",
+      "language": "Go",
+      "stargazers_count": 988,
+      "topics": [
+        "ai-agents",
+        "ai-coding",
+        "anthropic",
+        "claude",
+        "claude-code",
+        "cli",
+        "codex-cli",
+        "context-memory",
+        "cursor",
+        "cursor-ai",
+        "developer-tools",
+        "first-principles",
+        "gemini-cli",
+        "prompt-engineering",
+        "reasoning",
+        "structured-reasoning",
+        "systems-thinking"
+      ],
+      "created_at": "2025-12-10T19:16:51Z",
+      "updated_at": "2025-12-27T22:37:34Z",
+      "starred_at": "2025-12-26T16:40:49Z"
+    },
+    {
+      "id": 1025009062,
+      "name": "Claude-Code-Board",
+      "full_name": "cablate/Claude-Code-Board",
+      "owner": {
+        "login": "cablate",
+        "avatar_url": "https://avatars.githubusercontent.com/u/85614048?v=4"
+      },
+      "html_url": "https://github.com/cablate/Claude-Code-Board",
+      "description": "Use Claude Code on Kanban WebUI",
+      "language": "TypeScript",
+      "stargazers_count": 104,
+      "topics": [
+        "anthropic",
+        "claude-code",
+        "claudeai",
+        "claudecode",
+        "gui",
+        "kanban",
+        "nodejs",
+        "react",
+        "ui",
+        "windows"
+      ],
+      "created_at": "2025-07-23T15:21:43Z",
+      "updated_at": "2025-12-28T17:12:26Z",
+      "starred_at": "2025-12-26T16:37:38Z"
+    },
+    {
+      "id": 1063265931,
+      "name": "all-agentic-architectures",
+      "full_name": "FareedKhan-dev/all-agentic-architectures",
+      "owner": {
+        "login": "FareedKhan-dev",
+        "avatar_url": "https://avatars.githubusercontent.com/u/63067900?v=4"
+      },
+      "html_url": "https://github.com/FareedKhan-dev/all-agentic-architectures",
+      "description": "Implementation of 17+ agentic architectures designed for practical use across different stages of AI system development.",
+      "language": "Jupyter Notebook",
+      "stargazers_count": 2180,
+      "topics": [
+        "agentic-ai",
+        "ai-agents",
+        "langchain",
+        "langgraph",
+        "langsmith",
+        "llm"
+      ],
+      "created_at": "2025-09-24T11:47:58Z",
+      "updated_at": "2025-12-28T20:42:14Z",
+      "starred_at": "2025-12-07T04:42:29Z"
+    },
+    {
+      "id": 21289110,
+      "name": "awesome-python",
+      "full_name": "vinta/awesome-python",
+      "owner": {
+        "login": "vinta",
+        "avatar_url": "https://avatars.githubusercontent.com/u/652070?v=4"
+      },
+      "html_url": "https://github.com/vinta/awesome-python",
+      "description": "An opinionated list of awesome Python frameworks, libraries, software and resources.",
+      "language": "Python",
+      "stargazers_count": 275794,
+      "topics": [
+        "awesome",
+        "collections",
+        "python",
+        "python-framework",
+        "python-library",
+        "python-resources"
+      ],
+      "created_at": "2014-06-27T21:00:06Z",
+      "updated_at": "2025-12-28T22:25:14Z",
+      "starred_at": "2025-12-06T15:27:50Z"
+    },
+    {
+      "id": 228700143,
+      "name": "scalene",
+      "full_name": "plasma-umass/scalene",
+      "owner": {
+        "login": "plasma-umass",
+        "avatar_url": "https://avatars.githubusercontent.com/u/1880823?v=4"
+      },
+      "html_url": "https://github.com/plasma-umass/scalene",
+      "description": "Scalene: a high-performance, high-precision CPU, GPU, and memory profiler for Python with AI-powered optimization proposals",
+      "language": "Python",
+      "stargazers_count": 13174,
+      "topics": [
+        "cpu",
+        "cpu-profiling",
+        "gpu",
+        "gpu-programming",
+        "memory-allocation",
+        "memory-consumption",
+        "performance-analysis",
+        "performance-cpu",
+        "profiler",
+        "profiles-memory",
+        "profiling",
+        "python",
+        "python-profilers",
+        "scalene"
+      ],
+      "created_at": "2019-12-17T20:56:28Z",
+      "updated_at": "2025-12-28T08:03:51Z",
+      "starred_at": "2025-12-06T15:27:49Z"
+    },
+    {
+      "id": 510607652,
+      "name": "pocketbase",
+      "full_name": "pocketbase/pocketbase",
+      "owner": {
+        "login": "pocketbase",
+        "avatar_url": "https://avatars.githubusercontent.com/u/101000011?v=4"
+      },
+      "html_url": "https://github.com/pocketbase/pocketbase",
+      "description": "Open Source realtime backend in 1 file",
+      "language": "Go",
+      "stargazers_count": 54704,
+      "topics": [
+        "authentication",
+        "backend",
+        "golang",
+        "realtime"
+      ],
+      "created_at": "2022-07-05T06:06:21Z",
+      "updated_at": "2025-12-28T21:35:36Z",
+      "starred_at": "2025-12-06T15:27:23Z"
+    },
+    {
+      "id": 11227261,
+      "name": "django-postgres-fuzzycount",
+      "full_name": "stephenmcd/django-postgres-fuzzycount",
+      "owner": {
+        "login": "stephenmcd",
+        "avatar_url": "https://avatars.githubusercontent.com/u/116385?v=4"
+      },
+      "html_url": "https://github.com/stephenmcd/django-postgres-fuzzycount",
+      "description": "Fast / fuzzy PostgreSQL counts for Django",
+      "language": "Python",
+      "stargazers_count": 89,
+      "topics": [],
+      "created_at": "2013-07-07T02:13:53Z",
+      "updated_at": "2025-12-06T15:27:11Z",
+      "starred_at": "2025-12-06T15:27:10Z"
+    },
+    {
+      "id": 927056800,
+      "name": "awesome-n8n",
+      "full_name": "restyler/awesome-n8n",
+      "owner": {
+        "login": "restyler",
+        "avatar_url": "https://avatars.githubusercontent.com/u/775507?v=4"
+      },
+      "html_url": "https://github.com/restyler/awesome-n8n",
+      "description": "Useful n8n resources: list of community nodes and tutorials",
+      "language": "Unknown",
+      "stargazers_count": 2549,
+      "topics": [],
+      "created_at": "2025-02-04T10:30:55Z",
+      "updated_at": "2025-12-28T21:06:11Z",
+      "starred_at": "2025-12-06T15:27:08Z"
+    },
+    {
+      "id": 278641419,
+      "name": "awesome-system-design",
+      "full_name": "madd86/awesome-system-design",
+      "owner": {
+        "login": "madd86",
+        "avatar_url": "https://avatars.githubusercontent.com/u/23120598?v=4"
+      },
+      "html_url": "https://github.com/madd86/awesome-system-design",
+      "description": "A curated list of awesome System Design (A.K.A. Distributed Systems) resources. ",
+      "language": "Unknown",
+      "stargazers_count": 11325,
+      "topics": [
+        "distributed-systems",
+        "hadoop-ecosystem",
+        "interview",
+        "message-broker",
+        "microservices",
+        "microservices-architecture",
+        "nosql",
+        "relational-database",
+        "stream-processing"
+      ],
+      "created_at": "2020-07-10T13:32:32Z",
+      "updated_at": "2025-12-28T12:30:24Z",
+      "starred_at": "2025-12-06T15:26:42Z"
+    },
+    {
+      "id": 1078137951,
+      "name": "alt-sendme",
+      "full_name": "tonyantony300/alt-sendme",
+      "owner": {
+        "login": "tonyantony300",
+        "avatar_url": "https://avatars.githubusercontent.com/u/54979586?v=4"
+      },
+      "html_url": "https://github.com/tonyantony300/alt-sendme",
+      "description": "Send files and folders anywhere in the world without storing in cloud - any size, any format, no accounts, no restrictions.",
+      "language": "TypeScript",
+      "stargazers_count": 4587,
+      "topics": [
+        "blake3",
+        "blip",
+        "blip-alternative",
+        "de-google",
+        "dropbox-alternative",
+        "encryption",
+        "file-transfer",
+        "hole-punching",
+        "open-source",
+        "p2p",
+        "privacy",
+        "quic",
+        "resumable"
+      ],
+      "created_at": "2025-10-17T09:08:25Z",
+      "updated_at": "2025-12-28T14:48:25Z",
+      "starred_at": "2025-12-06T15:26:39Z"
+    },
+    {
+      "id": 1103671465,
+      "name": "claude-pulse",
+      "full_name": "omriariav/claude-pulse",
+      "owner": {
+        "login": "omriariav",
+        "avatar_url": "https://avatars.githubusercontent.com/u/6891042?v=4"
+      },
+      "html_url": "https://github.com/omriariav/claude-pulse",
+      "description": "Monitoring the \"pulse\" of your Claude Code session",
+      "language": "Shell",
+      "stargazers_count": 3,
+      "topics": [],
+      "created_at": "2025-11-25T07:18:25Z",
+      "updated_at": "2025-12-26T15:18:59Z",
+      "starred_at": "2025-12-06T15:26:23Z"
+    },
+    {
+      "id": 983345476,
+      "name": "n8n-workflows",
+      "full_name": "Zie619/n8n-workflows",
+      "owner": {
+        "login": "Zie619",
+        "avatar_url": "https://avatars.githubusercontent.com/u/54673680?v=4"
+      },
+      "html_url": "https://github.com/Zie619/n8n-workflows",
+      "description": "all of the workflows of n8n i could find (also from the site itself)",
+      "language": "Python",
+      "stargazers_count": 48643,
+      "topics": [],
+      "created_at": "2025-05-14T08:43:59Z",
+      "updated_at": "2025-12-28T22:13:31Z",
+      "starred_at": "2025-12-06T15:26:08Z"
+    },
+    {
+      "id": 1084853233,
+      "name": "awesome-claude-skills",
+      "full_name": "VoltAgent/awesome-claude-skills",
+      "owner": {
+        "login": "VoltAgent",
+        "avatar_url": "https://avatars.githubusercontent.com/u/201282378?v=4"
+      },
+      "html_url": "https://github.com/VoltAgent/awesome-claude-skills",
+      "description": "The awesome collection of Claude Skills and resources.",
+      "language": "Unknown",
+      "stargazers_count": 1742,
+      "topics": [
+        "ai-agents",
+        "awesome-list",
+        "claude",
+        "claude-ai",
+        "claude-code",
+        "claude-skills",
+        "skills"
+      ],
+      "created_at": "2025-10-28T08:55:32Z",
+      "updated_at": "2025-12-28T19:50:26Z",
+      "starred_at": "2025-12-06T15:25:54Z"
+    },
+    {
+      "id": 965615190,
+      "name": "BMAD-METHOD",
+      "full_name": "bmad-code-org/BMAD-METHOD",
+      "owner": {
+        "login": "bmad-code-org",
+        "avatar_url": "https://avatars.githubusercontent.com/u/224091849?v=4"
+      },
+      "html_url": "https://github.com/bmad-code-org/BMAD-METHOD",
+      "description": "Breakthrough Method for Agile Ai Driven Development",
+      "language": "JavaScript",
+      "stargazers_count": 26343,
+      "topics": [],
+      "created_at": "2025-04-13T14:54:25Z",
+      "updated_at": "2025-12-28T21:45:24Z",
+      "starred_at": "2025-12-06T15:25:33Z"
+    },
+    {
+      "id": 1042367133,
+      "name": "spec-kit",
+      "full_name": "github/spec-kit",
+      "owner": {
+        "login": "github",
+        "avatar_url": "https://avatars.githubusercontent.com/u/9919?v=4"
+      },
+      "html_url": "https://github.com/github/spec-kit",
+      "description": "💫 Toolkit to help you get started with Spec-Driven Development",
+      "language": "Python",
+      "stargazers_count": 58269,
+      "topics": [
+        "ai",
+        "copilot",
+        "development",
+        "engineering",
+        "prd",
+        "spec",
+        "spec-driven"
+      ],
+      "created_at": "2025-08-21T22:54:31Z",
+      "updated_at": "2025-12-28T21:58:35Z",
+      "starred_at": "2025-11-20T22:46:45Z"
+    },
+    {
+      "id": 260928305,
+      "name": "awesome-fastapi",
+      "full_name": "mjhea0/awesome-fastapi",
+      "owner": {
+        "login": "mjhea0",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2018167?v=4"
+      },
+      "html_url": "https://github.com/mjhea0/awesome-fastapi",
+      "description": "A curated list of awesome things related to FastAPI",
+      "language": "Unknown",
+      "stargazers_count": 10886,
+      "topics": [
+        "awesome",
+        "awesome-list",
+        "fastapi",
+        "starlette"
+      ],
+      "created_at": "2020-05-03T13:35:20Z",
+      "updated_at": "2025-12-28T22:22:45Z",
+      "starred_at": "2022-03-17T12:40:39Z"
+    },
+    {
+      "id": 79254982,
+      "name": "rest-api-slim-php",
+      "full_name": "maurobonfietti/rest-api-slim-php",
+      "owner": {
+        "login": "maurobonfietti",
+        "avatar_url": "https://avatars.githubusercontent.com/u/24535949?v=4"
+      },
+      "html_url": "https://github.com/maurobonfietti/rest-api-slim-php",
+      "description": "Example of REST API with Slim PHP micro Framework.",
+      "language": "PHP",
+      "stargazers_count": 305,
+      "topics": [
+        "api",
+        "mysql",
+        "php",
+        "rest",
+        "rest-api",
+        "slim",
+        "slim-3",
+        "slim-micro-framework",
+        "slim-php-framework"
+      ],
+      "created_at": "2017-01-17T17:53:31Z",
+      "updated_at": "2025-11-22T22:49:19Z",
+      "starred_at": "2019-12-10T20:27:57Z"
+    },
+    {
+      "id": 1482997,
+      "name": "phpredis",
+      "full_name": "phpredis/phpredis",
+      "owner": {
+        "login": "phpredis",
+        "avatar_url": "https://avatars.githubusercontent.com/u/10171267?v=4"
+      },
+      "html_url": "https://github.com/phpredis/phpredis",
+      "description": "A PHP extension for Redis",
+      "language": "C",
+      "stargazers_count": 10187,
+      "topics": [
+        "cluster",
+        "keydb",
+        "php",
+        "redis",
+        "redis-cluster",
+        "valkey"
+      ],
+      "created_at": "2011-03-15T14:40:14Z",
+      "updated_at": "2025-12-28T14:39:26Z",
+      "starred_at": "2019-12-10T14:36:50Z"
+    },
+    {
+      "id": 79038782,
+      "name": "docker-nginx-php-mysql",
+      "full_name": "nanoninja/docker-nginx-php-mysql",
+      "owner": {
+        "login": "nanoninja",
+        "avatar_url": "https://avatars.githubusercontent.com/u/617323?v=4"
+      },
+      "html_url": "https://github.com/nanoninja/docker-nginx-php-mysql",
+      "description": "Docker running Nginx, PHP-FPM, MySQL & PHPMyAdmin",
+      "language": "Makefile",
+      "stargazers_count": 1779,
+      "topics": [
+        "composer",
+        "docker",
+        "docker-compose",
+        "lemp",
+        "mysql",
+        "nginx",
+        "php-fpm",
+        "phpmyadmin"
+      ],
+      "created_at": "2017-01-15T14:48:10Z",
+      "updated_at": "2025-12-28T01:24:21Z",
+      "starred_at": "2019-12-07T17:40:24Z"
+    }
+  ]
 }
