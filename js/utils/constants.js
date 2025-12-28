@@ -8,8 +8,9 @@ export const ENDPOINTS = {
 };
 
 // Supabase Configuration
-export const SUPABASE_URL = 'https://quhkbwfxighmvtkdgpjv.supabase.co';
-export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1aGtid2Z4aWdobXZ0a2RncGp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5NTc0MTksImV4cCI6MjA4MjUzMzQxOX0.p22HVFw-VTW0t9g_x6cgTuXOElMXNlkJggMf6INyjUU';
+// Set to empty strings to disable Supabase and use localStorage only
+export const SUPABASE_URL = ''; // 'https://quhkbwfxighmvtkdgpjv.supabase.co';
+export const SUPABASE_ANON_KEY = ''; // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1aGtid2Z4aWdobXZ0a2RncGp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5NTc0MTksImV4cCI6MjA4MjUzMzQxOX0.p22HVFw-VTW0t9g_x6cgTuXOElMXNlkJggMf6INyjUU';
 
 // Storage Keys
 export const STORAGE_KEYS = {
