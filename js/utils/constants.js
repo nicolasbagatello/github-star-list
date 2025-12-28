@@ -7,10 +7,18 @@ export const ENDPOINTS = {
     `${API_BASE}/repos/${owner}/${repo}/actions/workflows/${workflow}/dispatches`
 };
 
+// Feature Flags
+export const FEATURES = {
+  // Set to true to enable Supabase for cross-device sync (requires setup)
+  // Note: Supabase database is publicly writable - anyone can add/edit data
+  // For private use, keep this false (uses localStorage only)
+  USE_SUPABASE: false
+};
+
 // Supabase Configuration
-// Set to empty strings to disable Supabase and use localStorage only
-export const SUPABASE_URL = ''; // 'https://quhkbwfxighmvtkdgpjv.supabase.co';
-export const SUPABASE_ANON_KEY = ''; // 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1aGtid2Z4aWdobXZ0a2RncGp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5NTc0MTksImV4cCI6MjA4MjUzMzQxOX0.p22HVFw-VTW0t9g_x6cgTuXOElMXNlkJggMf6INyjUU';
+// Only used if FEATURES.USE_SUPABASE is true
+export const SUPABASE_URL = 'https://quhkbwfxighmvtkdgpjv.supabase.co';
+export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF1aGtid2Z4aWdobXZ0a2RncGp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY5NTc0MTksImV4cCI6MjA4MjUzMzQxOX0.p22HVFw-VTW0t9g_x6cgTuXOElMXNlkJggMf6INyjUU';
 
 // Storage Keys
 export const STORAGE_KEYS = {

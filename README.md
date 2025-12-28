@@ -85,13 +85,20 @@ cd github-star-list
 
 ## 🗄️ Supabase Integration (Optional)
 
-By default, custom tags and notes are stored in your browser's localStorage. For cross-device synchronization, you can optionally integrate with Supabase (free tier available).
+**By default, this app uses localStorage** (private, device-specific storage). For cross-device synchronization, you can optionally enable Supabase integration.
+
+⚠️ **Security Note**: Supabase integration is currently configured for public access (no authentication). This means anyone who visits your GitHub Pages site could potentially add/edit/delete data in your database. For most personal use cases, we recommend keeping **localStorage mode** (default) for complete privacy.
 
 ### Benefits of Supabase
 
 - **Cross-device sync**: Access your tags and notes from any device
 - **Backup**: Your data is stored in a database, not just your browser
 - **Sharing**: Potential for future features like sharing tags with others
+
+### Trade-offs
+
+- ✅ **localStorage (default)**: 100% private, no one can access your data
+- ⚠️ **Supabase**: Cross-device sync, but database is publicly accessible (anyone can modify)
 
 ### Setup Instructions
 
@@ -154,21 +161,29 @@ CREATE POLICY "Allow all access to notes" ON notes
    - **Project URL**: Copy the URL (e.g., `https://xxxxx.supabase.co`)
    - **anon public key**: Copy the key (starts with `eyJ...`)
 
-#### 4. Update Your Configuration
+#### 4. Enable Supabase Feature Flag
 
 1. Open `js/utils/constants.js` in your project
-2. Update these values:
+2. Change the feature flag to `true`:
 
 ```javascript
-export const SUPABASE_URL = 'YOUR_PROJECT_URL_HERE';
-export const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
+export const FEATURES = {
+  USE_SUPABASE: true  // Change from false to true
+};
 ```
 
-3. Commit and push the changes:
+3. Verify your Supabase credentials are correct (they should already be set):
+
+```javascript
+export const SUPABASE_URL = 'https://quhkbwfxighmvtkdgpjv.supabase.co';
+export const SUPABASE_ANON_KEY = 'eyJ...'; // Your actual key
+```
+
+4. Commit and push the changes:
 
 ```bash
 git add js/utils/constants.js
-git commit -m "Configure Supabase integration"
+git commit -m "Enable Supabase integration"
 git push
 ```
 
@@ -177,7 +192,7 @@ git push
 If you already have custom tags and notes in localStorage:
 
 1. Visit your GitHub Pages site
-2. Click the "Migrate to Supabase" button in the header
+2. Click the "Migrate to Supabase" button in the header (only visible when Supabase is enabled)
 3. Confirm the migration
 4. Wait for the success message
 
@@ -185,7 +200,23 @@ Your data is now synced to Supabase and will work across all devices!
 
 ### Disabling Supabase
 
-If Supabase is not configured or fails to initialize, the app automatically falls back to localStorage. No action needed.
+To switch back to localStorage-only mode (recommended for privacy):
+
+1. Open `js/utils/constants.js`
+2. Set the feature flag to `false`:
+```javascript
+export const FEATURES = {
+  USE_SUPABASE: false  // Disable Supabase, use localStorage only
+};
+```
+3. Commit and push:
+```bash
+git add js/utils/constants.js
+git commit -m "Disable Supabase, use localStorage only"
+git push
+```
+
+The app will automatically fall back to localStorage. Your Supabase credentials remain in the file (commented) for easy re-enabling later.
 
 ## 📖 How It Works
 

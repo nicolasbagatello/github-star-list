@@ -8,6 +8,7 @@ import { mergeCustomData, exportCustomData, initCustomData, getAllCustomData } f
 import { initSupabase, migrateFromLocalStorage } from './services/supabase.js';
 import { initDarkMode, setLoadingState, showToast } from './ui/components.js';
 import { initFilters, initURLFilters } from './ui/filters.js';
+import { FEATURES } from './utils/constants.js';
 
 /**
  * Initialize the application
@@ -18,8 +19,8 @@ async function init() {
   // Initialize dark mode
   initDarkMode();
 
-  // Initialize Supabase
-  const supabaseAvailable = initSupabase();
+  // Initialize Supabase (only if feature flag enabled)
+  const supabaseAvailable = FEATURES.USE_SUPABASE ? initSupabase() : false;
   initCustomData(supabaseAvailable);
 
   // Show loading state
@@ -109,30 +110,36 @@ function setupEventListeners() {
     }
   });
 
-  // Migrate to Supabase button
+  // Migrate to Supabase button (only show if Supabase is enabled)
   const migrateButton = document.getElementById('migrate-to-supabase');
-  migrateButton?.addEventListener('click', async () => {
-    if (!confirm('This will migrate your custom tags and notes from localStorage to Supabase. Continue?')) {
-      return;
+  if (migrateButton) {
+    if (!FEATURES.USE_SUPABASE) {
+      migrateButton.style.display = 'none';
+    } else {
+      migrateButton.addEventListener('click', async () => {
+        if (!confirm('This will migrate your custom tags and notes from localStorage to Supabase. Continue?')) {
+          return;
+        }
+
+        showToast('Starting migration...', 'info');
+
+        try {
+          const localData = getAllCustomData();
+          const results = await migrateFromLocalStorage(localData);
+
+          if (results.errors.length > 0) {
+            console.error('Migration errors:', results.errors);
+            showToast(`Migration completed with ${results.errors.length} errors. Check console for details.`, 'warning', 5000);
+          } else {
+            showToast(`Migration successful! Imported ${results.tagsImported} tags and ${results.notesImported} notes.`, 'success', 5000);
+          }
+        } catch (error) {
+          console.error('Migration failed:', error);
+          showToast('Migration failed. Please try again.', 'error', 5000);
+        }
+      });
     }
-
-    showToast('Starting migration...', 'info');
-
-    try {
-      const localData = getAllCustomData();
-      const results = await migrateFromLocalStorage(localData);
-
-      if (results.errors.length > 0) {
-        console.error('Migration errors:', results.errors);
-        showToast(`Migration completed with ${results.errors.length} errors. Check console for details.`, 'warning', 5000);
-      } else {
-        showToast(`Migration successful! Imported ${results.tagsImported} tags and ${results.notesImported} notes.`, 'success', 5000);
-      }
-    } catch (error) {
-      console.error('Migration failed:', error);
-      showToast('Migration failed. Please try again.', 'error', 5000);
-    }
-  });
+  }
 
   // Keyboard shortcuts
   document.addEventListener('keydown', (e) => {
