@@ -249,18 +249,6 @@ github-star-list/
 - **Workflow**: Fetches all stars in one run (uses ~1-3 requests for pagination)
 - **Daily sync**: Well within rate limits
 
-## 🤝 Contributing
-
-Contributions are welcome! Here are some ideas:
-
-- [ ] Add topic-based filtering in UI
-- [ ] Implement custom lists/collections
-- [ ] Add import functionality for custom data
-- [ ] Create statistics dashboard
-- [ ] Add PWA support with service worker
-- [ ] Implement virtual scrolling for 1000+ repos
-- [ ] Add GitHub Actions status badge in UI
-
 ## 📄 License
 
 MIT License - feel free to use this project for your own starred repos!
