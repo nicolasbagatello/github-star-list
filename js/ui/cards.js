@@ -83,9 +83,9 @@ export function createRepoCard(repo) {
       </div>
       <div class="tag-input" data-tag-input>
         ${repo.custom_tags.map(tag =>
-          `<span class="inline-flex items-center gap-1 px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-md text-xs">
-            ${sanitizeHTML(tag)}
-            <button class="hover:text-indigo-900 dark:hover:text-indigo-100" data-remove-tag="${sanitizeHTML(tag)}">
+          `<span class="inline-flex items-center gap-1 px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-md text-xs cursor-pointer hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors" data-custom-tag="${sanitizeHTML(tag)}">
+            <span class="pointer-events-none">${sanitizeHTML(tag)}</span>
+            <button class="hover:text-indigo-900 dark:hover:text-indigo-100" data-remove-tag="${sanitizeHTML(tag)}" onclick="event.stopPropagation()">
               <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
@@ -143,6 +143,14 @@ function setupCardEventListeners(card, repo) {
     badge.addEventListener('click', () => {
       const topic = badge.dataset.topic;
       window.dispatchEvent(new CustomEvent('filterByTopic', { detail: { topic } }));
+    });
+  });
+
+  // Custom tags click to filter
+  card.querySelectorAll('[data-custom-tag]').forEach(badge => {
+    badge.addEventListener('click', () => {
+      const customTag = badge.dataset.customTag;
+      window.dispatchEvent(new CustomEvent('filterByCustomTag', { detail: { customTag } }));
     });
   });
 
@@ -219,9 +227,10 @@ function setupCardEventListeners(card, repo) {
  */
 function createTagElement(tag, onRemove) {
   const tagEl = document.createElement('span');
-  tagEl.className = 'inline-flex items-center gap-1 px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-md text-xs';
+  tagEl.className = 'inline-flex items-center gap-1 px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-md text-xs cursor-pointer hover:bg-indigo-200 dark:hover:bg-indigo-800 transition-colors';
+  tagEl.dataset.customTag = tag;
   tagEl.innerHTML = `
-    ${sanitizeHTML(tag)}
+    <span class="pointer-events-none">${sanitizeHTML(tag)}</span>
     <button class="hover:text-indigo-900 dark:hover:text-indigo-100">
       <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -229,6 +238,12 @@ function createTagElement(tag, onRemove) {
     </button>
   `;
 
+  // Add click to filter
+  tagEl.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('filterByCustomTag', { detail: { customTag: tag } }));
+  });
+
+  // Add remove button handler
   tagEl.querySelector('button')?.addEventListener('click', (e) => {
     e.stopPropagation();
     onRemove();

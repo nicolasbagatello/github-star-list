@@ -31,6 +31,7 @@ export function initFilters(repositories) {
   setupSortSelect();
   setupFilterRemoval();
   setupTopicFiltering();
+  setupCustomTagFiltering();
 
   // Initial render
   applyFilters();
@@ -139,6 +140,20 @@ function setupTopicFiltering() {
 
     if (!currentFilters.topics.includes(topic)) {
       currentFilters.topics.push(topic);
+      applyFilters();
+    }
+  });
+}
+
+/**
+ * Setup custom tag filtering from badge clicks
+ */
+function setupCustomTagFiltering() {
+  window.addEventListener('filterByCustomTag', (e) => {
+    const { customTag } = e.detail;
+
+    if (!currentFilters.customTags.includes(customTag)) {
+      currentFilters.customTags.push(customTag);
       applyFilters();
     }
   });

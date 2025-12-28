@@ -250,6 +250,16 @@ export function updateActiveFilters(filters) {
     });
   }
 
+  if (filters.customTags && filters.customTags.length > 0) {
+    filters.customTags.forEach(tag => {
+      activeFilters.push({
+        label: `Tag: ${tag}`,
+        type: 'customTag',
+        value: tag
+      });
+    });
+  }
+
   if (activeFilters.length > 0) {
     container.classList.remove('hidden');
     activeFilters.forEach(filter => {
