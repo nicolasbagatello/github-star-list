@@ -1,0 +1,205 @@
+name: Sync GitHub Stars
+
+on:
+  # Run daily at 2 AM UTC
+  schedule:
+    - cron: '0 2 * * *'
+
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch starred repositories
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          GITHUB_USERNAME: nicolasbagatello
+        run: |
+          echo "Fetching starred repositories for $GITHUB_USERNAME..."
+
+          # Create a Node.js script to fetch stars
+          cat > fetch-stars.js << 'SCRIPT'
+          const https = require('https');
+          const fs = require('fs');
+
+          const USERNAME = process.env.GITHUB_USERNAME;
+          const TOKEN = process.env.GITHUB_PAT;
+          const DATA_FILE = './data/stars.json';
+
+          // Load existing data
+          let existingData = { metadata: {}, repositories: [] };
+          try {
+            if (fs.existsSync(DATA_FILE)) {
+              existingData = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+            }
+          } catch (error) {
+            console.log('No existing data found or error reading file');
+          }
+
+          // Create a map of existing repos by ID
+          const existingRepos = new Map(
+            existingData.repositories.map(repo => [repo.id, repo])
+          );
+
+          async function fetchAllStars() {
+            let allRepos = [];
+            let page = 1;
+            const perPage = 100;
+
+            while (true) {
+              const options = {
+                hostname: 'api.github.com',
+                path: `/users/${USERNAME}/starred?per_page=${perPage}&page=${page}`,
+                method: 'GET',
+                headers: {
+                  'User-Agent': 'GitHub-Stars-Sync',
+                  'Authorization': `token ${TOKEN}`,
+                  'Accept': 'application/vnd.github.v3.star+json'
+                }
+              };
+
+              const data = await new Promise((resolve, reject) => {
+                const req = https.request(options, (res) => {
+                  let body = '';
+                  res.on('data', chunk => body += chunk);
+                  res.on('end', () => {
+                    if (res.statusCode === 200) {
+                      resolve({ data: JSON.parse(body), headers: res.headers });
+                    } else {
+                      reject(new Error(`API returned ${res.statusCode}: ${body}`));
+                    }
+                  });
+                });
+                req.on('error', reject);
+                req.end();
+              });
+
+              const repos = data.data;
+
+              if (!repos || repos.length === 0) break;
+
+              // Map to simpler structure
+              const mappedRepos = repos.map(item => ({
+                id: item.repo.id,
+                name: item.repo.name,
+                full_name: item.repo.full_name,
+                owner: {
+                  login: item.repo.owner.login,
+                  avatar_url: item.repo.owner.avatar_url
+                },
+                html_url: item.repo.html_url,
+                description: item.repo.description || '',
+                language: item.repo.language || 'Unknown',
+                stargazers_count: item.repo.stargazers_count,
+                topics: item.repo.topics || [],
+                created_at: item.repo.created_at,
+                updated_at: item.repo.updated_at,
+                starred_at: item.starred_at
+              }));
+
+              allRepos.push(...mappedRepos);
+              console.log(`Fetched page ${page}: ${repos.length} repos (Total: ${allRepos.length})`);
+
+              // Check for next page
+              const linkHeader = data.headers.link;
+              if (!linkHeader || !linkHeader.includes('rel="next"')) break;
+
+              page++;
+            }
+
+            return allRepos;
+          }
+
+          (async () => {
+            try {
+              console.log('Starting fetch...');
+              const fetchedRepos = await fetchAllStars();
+
+              // Merge with existing data
+              const mergedRepos = fetchedRepos.map(newRepo => {
+                const existing = existingRepos.get(newRepo.id);
+                if (existing) {
+                  // Update metadata but keep any extra fields if present
+                  return {
+                    ...newRepo,
+                    // Preserve any custom fields from existing (though they'll be in localStorage)
+                    starred_at: existing.starred_at || newRepo.starred_at
+                  };
+                }
+                return newRepo;
+              });
+
+              // Create final data structure
+              const finalData = {
+                metadata: {
+                  lastUpdated: new Date().toISOString(),
+                  username: USERNAME,
+                  totalStars: mergedRepos.length,
+                  version: '1.0'
+                },
+                repositories: mergedRepos
+              };
+
+              // Write to file
+              fs.writeFileSync(DATA_FILE, JSON.stringify(finalData, null, 2));
+
+              console.log(`✅ Successfully synced ${mergedRepos.length} starred repositories`);
+              console.log(`📊 New repos: ${mergedRepos.length - existingRepos.size}`);
+              console.log(`📊 Updated repos: ${Math.min(mergedRepos.length, existingRepos.size)}`);
+            } catch (error) {
+              console.error('❌ Error:', error.message);
+              process.exit(1);
+            }
+          })();
+          SCRIPT
+
+          # Run the script
+          node fetch-stars.js
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet data/stars.json; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected in stars.json"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in stars.json"
+          fi
+
+      - name: Commit and push changes
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/stars.json
+          git commit -m "chore: sync starred repositories [skip ci]"
+          git push
+
+      - name: Summary
+        run: |
+          echo "### Sync Complete! 🎉" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+          if [ "${{ steps.check_changes.outputs.has_changes }}" == "true" ]; then
+            echo "✅ Stars data has been updated and committed." >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ No changes detected - data is up to date." >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 **Total Stars:** $(node -e "console.log(require('./data/stars.json').metadata.totalStars)")" >> $GITHUB_STEP_SUMMARY
+          echo "🕒 **Last Updated:** $(node -e "console.log(require('./data/stars.json').metadata.lastUpdated)")" >> $GITHUB_STEP_SUMMARY
