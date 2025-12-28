@@ -25,7 +25,7 @@ jobs:
 
       - name: Fetch starred repositories
         env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
           GITHUB_USERNAME: nicolasbagatello
         run: |
           echo "Fetching starred repositories for $GITHUB_USERNAME..."
