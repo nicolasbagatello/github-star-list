@@ -20,6 +20,7 @@ https://YOUR_USERNAME.github.io/github-star-list/
 - **🔍 Advanced Filtering**: Search, filter by language, topics, and custom tags
 - **🏷️ Custom Tags**: Add your own tags to organize repositories
 - **📝 Personal Notes**: Add notes to remember why you starred each repo
+- **🗄️ Supabase Integration**: Optional cloud database for cross-device sync
 - **🎨 Modern UI**: Clean, Square UI-inspired design with Tailwind CSS
 - **🌙 Dark Mode**: Automatic dark mode support
 - **📱 Responsive**: Works perfectly on desktop, tablet, and mobile
@@ -82,6 +83,110 @@ cd github-star-list
 4. Wait for the workflow to complete (usually 10-30 seconds)
 5. Visit your GitHub Pages URL to see your starred repos!
 
+## 🗄️ Supabase Integration (Optional)
+
+By default, custom tags and notes are stored in your browser's localStorage. For cross-device synchronization, you can optionally integrate with Supabase (free tier available).
+
+### Benefits of Supabase
+
+- **Cross-device sync**: Access your tags and notes from any device
+- **Backup**: Your data is stored in a database, not just your browser
+- **Sharing**: Potential for future features like sharing tags with others
+
+### Setup Instructions
+
+#### 1. Create a Supabase Project
+
+1. Go to [supabase.com](https://supabase.com) and sign up/login
+2. Click "New Project"
+3. Fill in the details:
+   - **Name**: `github-stars` (or any name you prefer)
+   - **Database Password**: Create a strong password
+   - **Region**: Choose closest to you
+4. Click "Create new project" and wait ~2 minutes for setup
+
+#### 2. Create Database Tables
+
+1. In your Supabase dashboard, go to **SQL Editor**
+2. Click "New query"
+3. Copy and paste this SQL:
+
+```sql
+-- Create custom_tags table
+CREATE TABLE custom_tags (
+  id BIGSERIAL PRIMARY KEY,
+  repo_id BIGINT NOT NULL,
+  tag TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  UNIQUE(repo_id, tag)
+);
+
+-- Create notes table
+CREATE TABLE notes (
+  repo_id BIGINT PRIMARY KEY,
+  content TEXT NOT NULL,
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Create indexes for better performance
+CREATE INDEX idx_tags_repo ON custom_tags(repo_id);
+CREATE INDEX idx_tags_tag ON custom_tags(tag);
+
+-- Enable Row Level Security (RLS)
+ALTER TABLE custom_tags ENABLE ROW LEVEL SECURITY;
+ALTER TABLE notes ENABLE ROW LEVEL SECURITY;
+
+-- Create policies to allow all access (public read/write)
+-- Note: For a production app, you'd want proper authentication
+CREATE POLICY "Allow all access to custom_tags" ON custom_tags
+  FOR ALL USING (true) WITH CHECK (true);
+
+CREATE POLICY "Allow all access to notes" ON notes
+  FOR ALL USING (true) WITH CHECK (true);
+```
+
+4. Click "Run" to execute the SQL
+
+#### 3. Get Your Supabase Credentials
+
+1. Go to **Settings** → **API** in your Supabase dashboard
+2. Find these values:
+   - **Project URL**: Copy the URL (e.g., `https://xxxxx.supabase.co`)
+   - **anon public key**: Copy the key (starts with `eyJ...`)
+
+#### 4. Update Your Configuration
+
+1. Open `js/utils/constants.js` in your project
+2. Update these values:
+
+```javascript
+export const SUPABASE_URL = 'YOUR_PROJECT_URL_HERE';
+export const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
+```
+
+3. Commit and push the changes:
+
+```bash
+git add js/utils/constants.js
+git commit -m "Configure Supabase integration"
+git push
+```
+
+#### 5. Migrate Existing Data (Optional)
+
+If you already have custom tags and notes in localStorage:
+
+1. Visit your GitHub Pages site
+2. Click the "Migrate to Supabase" button in the header
+3. Confirm the migration
+4. Wait for the success message
+
+Your data is now synced to Supabase and will work across all devices!
+
+### Disabling Supabase
+
+If Supabase is not configured or fails to initialize, the app automatically falls back to localStorage. No action needed.
+
 ## 📖 How It Works
 
 ### Architecture
@@ -124,7 +229,9 @@ cd github-star-list
 ### Data Storage
 
 - **GitHub-sourced data** (repo name, description, stars, topics, etc.): Stored in `data/stars.json`, automatically updated by GitHub Actions workflow
-- **User-added data** (custom tags, notes): Stored in browser's localStorage, never leaves your device
+- **User-added data** (custom tags, notes):
+  - **Default**: Stored in browser's localStorage (device-specific)
+  - **With Supabase** (optional): Stored in Supabase database (synced across devices)
 - **Display**: Both sources are merged at runtime for a complete view
 
 ## 🎯 Usage
@@ -247,7 +354,8 @@ github-star-list/
 │   ├── app.js             # Application entry point
 │   ├── services/
 │   │   ├── storage.js     # Data loading and utilities
-│   │   └── customData.js  # localStorage management
+│   │   ├── customData.js  # Custom data management (localStorage/Supabase)
+│   │   └── supabase.js    # Supabase database operations
 │   ├── ui/
 │   │   ├── components.js  # Reusable UI components
 │   │   ├── cards.js       # Repository cards
@@ -263,7 +371,7 @@ github-star-list/
 - **Styling**: Tailwind CSS (via CDN), custom CSS
 - **Automation**: GitHub Actions
 - **Hosting**: GitHub Pages
-- **Data Storage**: JSON file + localStorage
+- **Data Storage**: JSON file + localStorage/Supabase (optional)
 
 ## 📝 API Rate Limits
 
@@ -311,6 +419,20 @@ MIT License - feel free to use this project for your own starred repos!
 - Clear your browser cache
 - Check browser console for errors
 - Verify localStorage is enabled in your browser
+
+### Supabase connection fails
+
+- Verify your `SUPABASE_URL` and `SUPABASE_ANON_KEY` in `constants.js` are correct
+- Make sure you copied the **anon public** key (starts with `eyJ...`)
+- Check browser console for specific error messages
+- Verify the database tables were created successfully (check SQL Editor)
+- Ensure Row Level Security policies are set up correctly
+
+### Migration button doesn't appear
+
+- Make sure you've pushed the latest code with Supabase integration
+- Clear browser cache and refresh the page
+- If you don't want Supabase, you can ignore this feature
 
 ## 📧 Contact
 

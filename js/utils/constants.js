@@ -7,6 +7,10 @@ export const ENDPOINTS = {
     `${API_BASE}/repos/${owner}/${repo}/actions/workflows/${workflow}/dispatches`
 };
 
+// Supabase Configuration
+export const SUPABASE_URL = 'https://quhkbwfxighmvtkdgpjv.supabase.co';
+export const SUPABASE_ANON_KEY = 'sb_publishable_AS7x4i72P-adGAOb_vCfSQ_MPCCvbcg';
+
 // Storage Keys
 export const STORAGE_KEYS = {
   CUSTOM_TAGS_PREFIX: 'custom_tags_',

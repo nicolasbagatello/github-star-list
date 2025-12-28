@@ -4,7 +4,8 @@
  */
 
 import { loadStarsData, formatDate } from './services/storage.js';
-import { mergeCustomData, exportCustomData } from './services/customData.js';
+import { mergeCustomData, exportCustomData, initCustomData, getAllCustomData } from './services/customData.js';
+import { initSupabase, migrateFromLocalStorage } from './services/supabase.js';
 import { initDarkMode, setLoadingState, showToast } from './ui/components.js';
 import { initFilters, initURLFilters } from './ui/filters.js';
 
@@ -17,6 +18,10 @@ async function init() {
   // Initialize dark mode
   initDarkMode();
 
+  // Initialize Supabase
+  const supabaseAvailable = initSupabase();
+  initCustomData(supabaseAvailable);
+
   // Show loading state
   setLoadingState(true);
 
@@ -24,9 +29,9 @@ async function init() {
     // Load stars data from JSON file
     const data = await loadStarsData();
 
-    // Merge custom data from localStorage
-    const repositoriesWithCustomData = data.repositories.map(repo =>
-      mergeCustomData(repo)
+    // Merge custom data from Supabase/localStorage (async now)
+    const repositoriesWithCustomData = await Promise.all(
+      data.repositories.map(repo => mergeCustomData(repo))
     );
 
     // Update UI with metadata
@@ -101,6 +106,31 @@ function setupEventListeners() {
       showToast('Custom data exported successfully', 'success');
     } else {
       showToast('Failed to export custom data', 'error');
+    }
+  });
+
+  // Migrate to Supabase button
+  const migrateButton = document.getElementById('migrate-to-supabase');
+  migrateButton?.addEventListener('click', async () => {
+    if (!confirm('This will migrate your custom tags and notes from localStorage to Supabase. Continue?')) {
+      return;
+    }
+
+    showToast('Starting migration...', 'info');
+
+    try {
+      const localData = getAllCustomData();
+      const results = await migrateFromLocalStorage(localData);
+
+      if (results.errors.length > 0) {
+        console.error('Migration errors:', results.errors);
+        showToast(`Migration completed with ${results.errors.length} errors. Check console for details.`, 'warning', 5000);
+      } else {
+        showToast(`Migration successful! Imported ${results.tagsImported} tags and ${results.notesImported} notes.`, 'success', 5000);
+      }
+    } catch (error) {
+      console.error('Migration failed:', error);
+      showToast('Migration failed. Please try again.', 'error', 5000);
     }
   });
 

@@ -1,16 +1,35 @@
 /**
  * Custom Data Service
- * Manages user-added custom tags and notes stored in localStorage
+ * Manages user-added custom tags and notes using Supabase
+ * Falls back to localStorage if Supabase is not available
  */
 
 import { STORAGE_KEYS, ERROR_MESSAGES } from '../utils/constants.js';
+import * as SupabaseService from './supabase.js';
+
+// Flag to track if we're using Supabase or localStorage
+let useSupabase = false;
+
+/**
+ * Initialize the custom data service
+ * @param {boolean} supabaseAvailable - Whether Supabase is available
+ */
+export function initCustomData(supabaseAvailable) {
+  useSupabase = supabaseAvailable;
+  console.log(`📊 Custom data service using: ${useSupabase ? 'Supabase' : 'localStorage'}`);
+}
 
 /**
  * Get custom tags for a repository
  * @param {number} repoId - GitHub repository ID
- * @returns {Array<string>} Array of custom tags
+ * @returns {Promise<Array<string>>} Array of custom tags
  */
-export function getCustomTags(repoId) {
+export async function getCustomTags(repoId) {
+  if (useSupabase) {
+    return await SupabaseService.getCustomTags(repoId);
+  }
+
+  // Fallback to localStorage
   try {
     const key = STORAGE_KEYS.CUSTOM_TAGS_PREFIX + repoId;
     const data = localStorage.getItem(key);
@@ -25,25 +44,38 @@ export function getCustomTags(repoId) {
  * Set custom tags for a repository
  * @param {number} repoId - GitHub repository ID
  * @param {Array<string>} tags - Array of custom tags
+ * @returns {Promise<boolean>} Success status
  */
-export function setCustomTags(repoId, tags) {
+export async function setCustomTags(repoId, tags) {
+  if (useSupabase) {
+    return await SupabaseService.setCustomTags(repoId, tags);
+  }
+
+  // Fallback to localStorage
   try {
     const key = STORAGE_KEYS.CUSTOM_TAGS_PREFIX + repoId;
     localStorage.setItem(key, JSON.stringify(tags));
+    return true;
   } catch (error) {
     console.error('Error setting custom tags:', error);
     if (error.name === 'QuotaExceededError') {
       showToast(ERROR_MESSAGES.STORAGE_QUOTA_EXCEEDED, 'error');
     }
+    return false;
   }
 }
 
 /**
  * Get notes for a repository
  * @param {number} repoId - GitHub repository ID
- * @returns {string} Notes text
+ * @returns {Promise<string>} Notes text
  */
-export function getNotes(repoId) {
+export async function getNotes(repoId) {
+  if (useSupabase) {
+    return await SupabaseService.getNotes(repoId);
+  }
+
+  // Fallback to localStorage
   try {
     const key = STORAGE_KEYS.NOTES_PREFIX + repoId;
     return localStorage.getItem(key) || '';
@@ -57,8 +89,14 @@ export function getNotes(repoId) {
  * Set notes for a repository
  * @param {number} repoId - GitHub repository ID
  * @param {string} notes - Notes text
+ * @returns {Promise<boolean>} Success status
  */
-export function setNotes(repoId, notes) {
+export async function setNotes(repoId, notes) {
+  if (useSupabase) {
+    return await SupabaseService.saveNotes(repoId, notes);
+  }
+
+  // Fallback to localStorage
   try {
     const key = STORAGE_KEYS.NOTES_PREFIX + repoId;
     if (notes.trim()) {
@@ -66,24 +104,31 @@ export function setNotes(repoId, notes) {
     } else {
       localStorage.removeItem(key);
     }
+    return true;
   } catch (error) {
     console.error('Error setting notes:', error);
     if (error.name === 'QuotaExceededError') {
       showToast(ERROR_MESSAGES.STORAGE_QUOTA_EXCEEDED, 'error');
     }
+    return false;
   }
 }
 
 /**
  * Merge custom data with repository data
  * @param {Object} repo - Repository object from GitHub
- * @returns {Object} Repository with custom data merged in
+ * @returns {Promise<Object>} Repository with custom data merged in
  */
-export function mergeCustomData(repo) {
+export async function mergeCustomData(repo) {
+  const [custom_tags, notes] = await Promise.all([
+    getCustomTags(repo.id),
+    getNotes(repo.id)
+  ]);
+
   return {
     ...repo,
-    custom_tags: getCustomTags(repo.id),
-    notes: getNotes(repo.id)
+    custom_tags,
+    notes
   };
 }
 
@@ -116,8 +161,14 @@ export function getAllCustomData() {
 
 /**
  * Export all custom data as JSON file
+ * @returns {Promise<boolean>} Success status
  */
-export function exportCustomData() {
+export async function exportCustomData() {
+  if (useSupabase) {
+    return await SupabaseService.exportCustomData();
+  }
+
+  // Fallback to localStorage export
   try {
     const data = getAllCustomData();
     const json = JSON.stringify(data, null, 2);
@@ -194,9 +245,14 @@ export function clearAllCustomData() {
 
 /**
  * Get all unique custom tags across all repositories
- * @returns {Array<string>} Sorted array of unique custom tags
+ * @returns {Promise<Array<string>>} Sorted array of unique custom tags
  */
-export function getAllUniqueTags() {
+export async function getAllUniqueTags() {
+  if (useSupabase) {
+    return await SupabaseService.getAllUniqueTags();
+  }
+
+  // Fallback to localStorage
   const tags = new Set();
 
   for (let i = 0; i < localStorage.length; i++) {
