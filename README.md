@@ -67,7 +67,7 @@ cd github-star-list
 ```
 ┌─────────────────────────────────────────────┐
 │     GitHub Actions Workflow (Scheduled)     │
-│         Runs daily at 2 AM UTC              │
+│    Runs every 8 hours (3x per day)         │
 └─────────────────┬───────────────────────────┘
                   │
                   ▼
@@ -138,7 +138,7 @@ cd github-star-list
 
 ### Manual Sync
 
-The workflow runs automatically every day at 2 AM UTC, but you can trigger it manually:
+The workflow runs automatically every 8 hours (at 00:00, 08:00, and 16:00 UTC), but you can trigger it manually:
 
 1. Go to the **Actions** tab
 2. Select "Sync GitHub Stars"
@@ -153,15 +153,15 @@ Edit `.github/workflows/sync-stars.yml` and change the cron expression:
 ```yaml
 on:
   schedule:
-    - cron: '0 2 * * *'  # Daily at 2 AM UTC
+    - cron: '0 */8 * * *'  # Every 8 hours
 ```
 
 Cron format: `minute hour day month weekday`
 
 Examples:
 - Every 6 hours: `0 */6 * * *`
-- Every Monday: `0 0 * * 1`
-- Twice daily: `0 0,12 * * *`
+- Every 12 hours: `0 */12 * * *`
+- Daily at specific time: `0 2 * * *`
 
 ### Customizing the Username
 
