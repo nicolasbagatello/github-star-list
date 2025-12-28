@@ -41,7 +41,7 @@ cd github-star-list
 
 1. Go to your repository's **Settings** → **Secrets and variables** → **Actions**
 2. Click "New repository secret"
-3. Name: `GITHUB_PAT`
+3. Name: `GH_PAT`
 4. Value: Paste your Personal Access Token
 5. Click "Add secret"
 
@@ -276,7 +276,7 @@ MIT License - feel free to use this project for your own starred repos!
 ### Workflow fails with "Error: API returned 401"
 
 - Your PAT might have expired or been revoked
-- Regenerate the token and update the `GITHUB_PAT` secret
+- Regenerate the token and update the `GH_PAT` secret
 
 ### Workflow fails with "Error: API returned 403"
 
