@@ -5,6 +5,15 @@ A beautiful, modern web application to manage, filter, and organize your GitHub 
 ![GitHub Stars Manager](https://img.shields.io/badge/Built%20with-Tailwind%20CSS-38bdf8?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/Automated%20with-GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
 
+## 🌐 Live Demo
+
+**[View Live Demo](https://nicolasbagatello.github.io/github-star-list/)** ← Replace `nicolasbagatello` with your GitHub username
+
+After setup, your site will be available at:
+```
+https://YOUR_USERNAME.github.io/github-star-list/
+```
+
 ## ✨ Features
 
 - **🔄 Automated Sync**: Daily automatic syncing of your starred repos via GitHub Actions
@@ -22,6 +31,19 @@ A beautiful, modern web application to manage, filter, and organize your GitHub 
 
 ### 1. Fork or Clone this Repository
 
+**Option A: Fork on GitHub** (Recommended)
+1. Click the "Fork" button at the top right of this repository
+2. Clone your fork:
+```bash
+git clone https://github.com/YOUR_USERNAME/github-star-list.git
+cd github-star-list
+```
+
+**Option B: Use as Template**
+1. Click "Use this template" → "Create a new repository"
+2. Clone your new repository
+
+**Option C: Clone Original** (for reference/testing)
 ```bash
 git clone https://github.com/nicolasbagatello/github-star-list.git
 cd github-star-list
