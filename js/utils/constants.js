@@ -26,7 +26,8 @@ export const STORAGE_KEYS = {
   NOTES_PREFIX: 'notes_',
   PREFERENCES: 'user_preferences',
   WORKFLOW_TOKEN: 'workflow_token',
-  DARK_MODE: 'dark_mode'
+  DARK_MODE: 'dark_mode',
+  LAST_SYNC_TIME: 'last_sync_time'
 };
 
 // Configuration
@@ -36,7 +37,9 @@ export const CONFIG = {
   USERNAME: 'nicolasbagatello',
   DATA_FILE: './data/stars.json',
   ITEMS_PER_PAGE: 100,
-  SEARCH_DEBOUNCE_MS: 300
+  SEARCH_DEBOUNCE_MS: 300,
+  SYNC_COOLDOWN_MS: 15 * 60 * 1000,  // 15 minutes
+  STALENESS_THRESHOLD_MS: 15 * 60 * 1000  // 15 minutes
 };
 
 // UI Constants
@@ -54,5 +57,6 @@ export const ERROR_MESSAGES = {
   LOAD_DATA_FAILED: 'Failed to load repository data. Please try again later.',
   NETWORK_ERROR: 'Network error occurred. Showing cached data.',
   WORKFLOW_TRIGGER_FAILED: 'Failed to trigger sync workflow. Please try again.',
-  STORAGE_QUOTA_EXCEEDED: 'Local storage quota exceeded. Please export and clear old data.'
+  STORAGE_QUOTA_EXCEEDED: 'Local storage quota exceeded. Please export and clear old data.',
+  SYNC_COOLDOWN: 'Please wait before syncing again.'
 };

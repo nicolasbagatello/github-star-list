@@ -1,9 +1,9 @@
 name: Sync GitHub Stars
 
 on:
-  # Run every 8 hours (00:00, 08:00, 16:00 UTC)
+  # Run every hour
   schedule:
-    - cron: '0 */8 * * *'
+    - cron: '0 * * * *'
 
   # Allow manual triggering
   workflow_dispatch:

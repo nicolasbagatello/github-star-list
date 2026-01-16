@@ -8,7 +8,11 @@ import { mergeCustomData, exportCustomData, initCustomData, getAllCustomData } f
 import { initSupabase, migrateFromLocalStorage } from './services/supabase.js';
 import { initDarkMode, setLoadingState, showToast } from './ui/components.js';
 import { initFilters, initURLFilters } from './ui/filters.js';
-import { FEATURES } from './utils/constants.js';
+import { FEATURES, STORAGE_KEYS, CONFIG } from './utils/constants.js';
+
+// Sync state
+let syncCooldownInterval = null;
+let lastMetadata = null;
 
 /**
  * Initialize the application
@@ -35,6 +39,9 @@ async function init() {
       data.repositories.map(repo => mergeCustomData(repo))
     );
 
+    // Store metadata for sync functionality
+    lastMetadata = data.metadata;
+
     // Update UI with metadata
     updateMetadata(data.metadata);
 
@@ -49,6 +56,13 @@ async function init() {
 
     // Setup additional event listeners
     setupEventListeners();
+
+    // Initialize sync button state and start cooldown timer if needed
+    updateSyncButtonState();
+    startCooldownTimer();
+
+    // Check if data is stale and auto-sync if needed
+    checkStalenessAndSync();
 
     console.log('✅ Application initialized successfully');
 
@@ -99,6 +113,12 @@ function updateMetadata(metadata) {
  * Setup additional event listeners
  */
 function setupEventListeners() {
+  // Sync button
+  const syncButton = document.getElementById('sync-button');
+  syncButton?.addEventListener('click', () => {
+    syncData();
+  });
+
   // Export custom data button
   const exportButton = document.getElementById('export-custom-data');
   exportButton?.addEventListener('click', () => {
@@ -219,10 +239,169 @@ function createSkipLink() {
 }
 
 /**
+ * Check if sync is allowed (cooldown has elapsed)
+ * @returns {boolean} True if sync is allowed
+ */
+function canSync() {
+  const lastSyncTime = localStorage.getItem(STORAGE_KEYS.LAST_SYNC_TIME);
+  if (!lastSyncTime) return true;
+
+  const elapsed = Date.now() - parseInt(lastSyncTime, 10);
+  return elapsed >= CONFIG.SYNC_COOLDOWN_MS;
+}
+
+/**
+ * Get remaining cooldown time in seconds
+ * @returns {number} Remaining seconds, 0 if cooldown has elapsed
+ */
+function getCooldownRemaining() {
+  const lastSyncTime = localStorage.getItem(STORAGE_KEYS.LAST_SYNC_TIME);
+  if (!lastSyncTime) return 0;
+
+  const elapsed = Date.now() - parseInt(lastSyncTime, 10);
+  const remaining = CONFIG.SYNC_COOLDOWN_MS - elapsed;
+  return remaining > 0 ? Math.ceil(remaining / 1000) : 0;
+}
+
+/**
+ * Format cooldown remaining time for display
+ * @param {number} seconds - Remaining seconds
+ * @returns {string} Formatted time string
+ */
+function formatCooldownTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  if (minutes > 0) {
+    return `${minutes}m`;
+  }
+  return `${secs}s`;
+}
+
+/**
+ * Update sync button UI state
+ */
+function updateSyncButtonState() {
+  const syncButton = document.getElementById('sync-button');
+  const syncButtonText = document.getElementById('sync-button-text');
+  if (!syncButton || !syncButtonText) return;
+
+  const cooldownRemaining = getCooldownRemaining();
+
+  if (cooldownRemaining > 0) {
+    syncButton.disabled = true;
+    syncButtonText.textContent = `Sync (${formatCooldownTime(cooldownRemaining)})`;
+  } else {
+    syncButton.disabled = false;
+    syncButtonText.textContent = 'Sync';
+  }
+}
+
+/**
+ * Set sync button loading state
+ * @param {boolean} loading - Whether loading is in progress
+ */
+function setSyncButtonLoading(loading) {
+  const syncButton = document.getElementById('sync-button');
+  const syncButtonText = document.getElementById('sync-button-text');
+  if (!syncButton || !syncButtonText) return;
+
+  if (loading) {
+    syncButton.disabled = true;
+    syncButtonText.textContent = 'Syncing...';
+    syncButton.classList.add('animate-pulse');
+  } else {
+    syncButton.classList.remove('animate-pulse');
+    updateSyncButtonState();
+  }
+}
+
+/**
+ * Start or restart the cooldown timer to update button state
+ */
+function startCooldownTimer() {
+  // Clear existing interval
+  if (syncCooldownInterval) {
+    clearInterval(syncCooldownInterval);
+    syncCooldownInterval = null;
+  }
+
+  const cooldownRemaining = getCooldownRemaining();
+  if (cooldownRemaining <= 0) return;
+
+  // Update every 30 seconds
+  syncCooldownInterval = setInterval(() => {
+    updateSyncButtonState();
+
+    // Stop interval when cooldown expires
+    if (getCooldownRemaining() <= 0) {
+      clearInterval(syncCooldownInterval);
+      syncCooldownInterval = null;
+    }
+  }, 30000);
+}
+
+/**
+ * Perform sync with cooldown enforcement
+ * @param {boolean} force - Force sync even if cooldown hasn't elapsed (for internal use)
+ * @param {boolean} silent - Don't show toast messages (for auto-sync)
+ */
+async function syncData(force = false, silent = false) {
+  // Check cooldown
+  if (!force && !canSync()) {
+    const remaining = getCooldownRemaining();
+    showToast(`Please wait ${formatCooldownTime(remaining)} before syncing again.`, 'warning', 3000);
+    return;
+  }
+
+  // Set loading state
+  setSyncButtonLoading(true);
+
+  if (!silent) {
+    showToast('Syncing data...', 'info', 2000);
+  }
+
+  try {
+    // Record sync time before reloading to prevent race conditions
+    localStorage.setItem(STORAGE_KEYS.LAST_SYNC_TIME, Date.now().toString());
+
+    // Reload data (re-fetch stars.json)
+    await reloadData();
+
+    // Start cooldown timer
+    startCooldownTimer();
+
+    if (!silent) {
+      showToast('Sync completed successfully', 'success');
+    }
+  } catch (error) {
+    console.error('Sync failed:', error);
+    showToast('Sync failed. Please try again.', 'error', 3000);
+  } finally {
+    setSyncButtonLoading(false);
+  }
+}
+
+/**
+ * Check if data is stale and auto-sync on page load
+ */
+function checkStalenessAndSync() {
+  if (!lastMetadata || !lastMetadata.lastUpdated) return;
+
+  const dataAge = Date.now() - new Date(lastMetadata.lastUpdated).getTime();
+  const isStale = dataAge >= CONFIG.STALENESS_THRESHOLD_MS;
+
+  if (isStale && canSync()) {
+    console.log('📊 Data is stale, auto-syncing...');
+    showToast('Data was stale, syncing...', 'info', 2000);
+    // Use silent mode for auto-sync to avoid duplicate success toasts
+    syncData(true, true);
+  }
+}
+
+/**
  * Reload data (for future use when implementing refresh button)
  */
 async function reloadData() {
-  showToast('Reloading data...', 'info');
   await init();
 }
 
@@ -246,4 +425,4 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-export { init, reloadData };
+export { init, reloadData, syncData };
