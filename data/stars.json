@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-01-18T04:36:59.940Z",
+    "lastUpdated": "2026-01-18T05:18:58.630Z",
     "username": "nicolasbagatello",
     "totalStars": 39,
     "version": "1.0"
@@ -25,7 +25,7 @@
         "swift"
       ],
       "created_at": "2025-11-16T17:00:44Z",
-      "updated_at": "2026-01-18T04:11:02Z",
+      "updated_at": "2026-01-18T05:17:50Z",
       "starred_at": "2026-01-18T00:32:31Z"
     },
     {
@@ -125,10 +125,10 @@
       "html_url": "https://github.com/0xdesign/design-plugin",
       "description": "",
       "language": "Shell",
-      "stargazers_count": 315,
+      "stargazers_count": 316,
       "topics": [],
       "created_at": "2026-01-15T01:46:04Z",
-      "updated_at": "2026-01-18T04:25:31Z",
+      "updated_at": "2026-01-18T04:42:55Z",
       "starred_at": "2026-01-15T10:46:32Z"
     },
     {
@@ -142,10 +142,10 @@
       "html_url": "https://github.com/AndyMik90/Auto-Claude",
       "description": "Autonomous multi-session AI coding",
       "language": "TypeScript",
-      "stargazers_count": 8537,
+      "stargazers_count": 8539,
       "topics": [],
       "created_at": "2025-12-04T22:10:37Z",
-      "updated_at": "2026-01-18T04:24:34Z",
+      "updated_at": "2026-01-18T05:18:58Z",
       "starred_at": "2026-01-15T01:35:25Z"
     },
     {
@@ -159,7 +159,7 @@
       "html_url": "https://github.com/BloopAI/vibe-kanban",
       "description": "Get 10X more out of Claude Code, Codex or any coding agent",
       "language": "Rust",
-      "stargazers_count": 16852,
+      "stargazers_count": 16866,
       "topics": [
         "agent",
         "ai-agents",
@@ -168,7 +168,7 @@
         "task-manager"
       ],
       "created_at": "2025-06-14T19:10:21Z",
-      "updated_at": "2026-01-18T04:35:44Z",
+      "updated_at": "2026-01-18T05:16:17Z",
       "starred_at": "2026-01-15T01:33:18Z"
     },
     {
@@ -182,10 +182,10 @@
       "html_url": "https://github.com/vercel-labs/json-render",
       "description": "AI → JSON → UI",
       "language": "TypeScript",
-      "stargazers_count": 5882,
+      "stargazers_count": 5890,
       "topics": [],
       "created_at": "2026-01-14T17:22:39Z",
-      "updated_at": "2026-01-18T04:36:30Z",
+      "updated_at": "2026-01-18T05:17:29Z",
       "starred_at": "2026-01-15T01:29:02Z"
     },
     {
@@ -233,10 +233,10 @@
       "html_url": "https://github.com/subsy/ralph-tui",
       "description": "",
       "language": "TypeScript",
-      "stargazers_count": 974,
+      "stargazers_count": 975,
       "topics": [],
       "created_at": "2026-01-11T10:29:12Z",
-      "updated_at": "2026-01-18T03:59:03Z",
+      "updated_at": "2026-01-18T04:52:43Z",
       "starred_at": "2026-01-13T12:01:05Z"
     },
     {
@@ -267,10 +267,10 @@
       "html_url": "https://github.com/pixlcore/xyops",
       "description": "A complete workflow automation and server monitoring system.",
       "language": "JavaScript",
-      "stargazers_count": 1019,
+      "stargazers_count": 1021,
       "topics": [],
       "created_at": "2025-12-29T16:57:27Z",
-      "updated_at": "2026-01-18T04:30:47Z",
+      "updated_at": "2026-01-18T05:12:53Z",
       "starred_at": "2026-01-12T14:03:17Z"
     },
     {
@@ -320,7 +320,7 @@
       "html_url": "https://github.com/davila7/claude-code-templates",
       "description": "CLI tool for configuring and monitoring Claude Code",
       "language": "Python",
-      "stargazers_count": 16874,
+      "stargazers_count": 16885,
       "topics": [
         "anthropic",
         "anthropic-claude",
@@ -328,7 +328,7 @@
         "claude-code"
       ],
       "created_at": "2025-07-04T01:26:26Z",
-      "updated_at": "2026-01-18T04:33:15Z",
+      "updated_at": "2026-01-18T05:17:55Z",
       "starred_at": "2026-01-10T05:52:16Z"
     },
     {
@@ -421,14 +421,14 @@
       "html_url": "https://github.com/ln-dev7/square-ui",
       "description": "Collection of beautifully crafted open-source layouts UI built with shadcn/ui.",
       "language": "TypeScript",
-      "stargazers_count": 4155,
+      "stargazers_count": 4156,
       "topics": [
         "layout",
         "shadcn-ui",
         "template"
       ],
       "created_at": "2025-03-25T10:09:25Z",
-      "updated_at": "2026-01-18T03:33:01Z",
+      "updated_at": "2026-01-18T04:43:57Z",
       "starred_at": "2025-12-27T03:28:24Z"
     },
     {
@@ -442,7 +442,7 @@
       "html_url": "https://github.com/thedotmack/claude-mem",
       "description": "A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.",
       "language": "TypeScript",
-      "stargazers_count": 14354,
+      "stargazers_count": 14359,
       "topics": [
         "ai",
         "ai-agents",
@@ -466,7 +466,7 @@
         "supermemory"
       ],
       "created_at": "2025-08-31T20:50:03Z",
-      "updated_at": "2026-01-18T04:28:59Z",
+      "updated_at": "2026-01-18T05:14:02Z",
       "starred_at": "2025-12-26T16:40:57Z"
     },
     {
@@ -567,7 +567,7 @@
       "html_url": "https://github.com/vinta/awesome-python",
       "description": "An opinionated list of awesome Python frameworks, libraries, software and resources.",
       "language": "Python",
-      "stargazers_count": 278714,
+      "stargazers_count": 278723,
       "topics": [
         "awesome",
         "collections",
@@ -577,7 +577,7 @@
         "python-resources"
       ],
       "created_at": "2014-06-27T21:00:06Z",
-      "updated_at": "2026-01-18T04:35:08Z",
+      "updated_at": "2026-01-18T05:13:13Z",
       "starred_at": "2025-12-06T15:27:50Z"
     },
     {
@@ -623,7 +623,7 @@
       "html_url": "https://github.com/pocketbase/pocketbase",
       "description": "Open Source realtime backend in 1 file",
       "language": "Go",
-      "stargazers_count": 55320,
+      "stargazers_count": 55322,
       "topics": [
         "authentication",
         "backend",
@@ -631,7 +631,7 @@
         "realtime"
       ],
       "created_at": "2022-07-05T06:06:21Z",
-      "updated_at": "2026-01-18T03:37:25Z",
+      "updated_at": "2026-01-18T05:09:30Z",
       "starred_at": "2025-12-06T15:27:23Z"
     },
     {
@@ -754,10 +754,10 @@
       "html_url": "https://github.com/Zie619/n8n-workflows",
       "description": "all of the workflows of n8n i could find (also from the site itself)",
       "language": "Python",
-      "stargazers_count": 50017,
+      "stargazers_count": 50020,
       "topics": [],
       "created_at": "2025-05-14T08:43:59Z",
-      "updated_at": "2026-01-18T04:21:50Z",
+      "updated_at": "2026-01-18T05:15:46Z",
       "starred_at": "2025-12-06T15:26:08Z"
     },
     {
@@ -771,7 +771,7 @@
       "html_url": "https://github.com/VoltAgent/awesome-claude-skills",
       "description": "The awesome collection of Claude Skills and resources.",
       "language": "Unknown",
-      "stargazers_count": 3286,
+      "stargazers_count": 3288,
       "topics": [
         "agent-skills",
         "ai-agents",
@@ -783,7 +783,7 @@
         "skills"
       ],
       "created_at": "2025-10-28T08:55:32Z",
-      "updated_at": "2026-01-18T04:29:06Z",
+      "updated_at": "2026-01-18T04:58:55Z",
       "starred_at": "2025-12-06T15:25:54Z"
     },
     {
@@ -797,10 +797,10 @@
       "html_url": "https://github.com/bmad-code-org/BMAD-METHOD",
       "description": "Breakthrough Method for Agile Ai Driven Development",
       "language": "JavaScript",
-      "stargazers_count": 30357,
+      "stargazers_count": 30364,
       "topics": [],
       "created_at": "2025-04-13T14:54:25Z",
-      "updated_at": "2026-01-18T04:26:40Z",
+      "updated_at": "2026-01-18T05:09:50Z",
       "starred_at": "2025-12-06T15:25:33Z"
     },
     {
@@ -814,7 +814,7 @@
       "html_url": "https://github.com/github/spec-kit",
       "description": "💫 Toolkit to help you get started with Spec-Driven Development",
       "language": "Python",
-      "stargazers_count": 63239,
+      "stargazers_count": 63242,
       "topics": [
         "ai",
         "copilot",
@@ -825,7 +825,7 @@
         "spec-driven"
       ],
       "created_at": "2025-08-21T22:54:31Z",
-      "updated_at": "2026-01-18T04:19:35Z",
+      "updated_at": "2026-01-18T05:13:04Z",
       "starred_at": "2025-11-20T22:46:45Z"
     },
     {
