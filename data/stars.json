@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdated": "2026-03-14T10:21:28.608Z",
+    "lastUpdated": "2026-03-14T11:18:41.707Z",
     "username": "nicolasbagatello",
     "totalStars": 89,
     "version": "1.0"
@@ -17,7 +17,7 @@
       "html_url": "https://github.com/lightpanda-io/browser",
       "description": "Lightpanda: the headless browser designed for AI and automation",
       "language": "Zig",
-      "stargazers_count": 16193,
+      "stargazers_count": 16271,
       "topics": [
         "browser",
         "browser-automation",
@@ -28,7 +28,7 @@
         "zig"
       ],
       "created_at": "2023-02-07T15:19:34Z",
-      "updated_at": "2026-03-14T10:20:25Z",
+      "updated_at": "2026-03-14T11:16:40Z",
       "starred_at": "2026-03-12T18:16:30Z"
     },
     {
@@ -42,7 +42,7 @@
       "html_url": "https://github.com/BIT-DataLab/Edit-Banana",
       "description": "Edit Banana: A framework for converting statistical formats into editable.",
       "language": "Python",
-      "stargazers_count": 4095,
+      "stargazers_count": 4096,
       "topics": [
         "ai",
         "data",
@@ -54,7 +54,7 @@
         "pythonprogramming"
       ],
       "created_at": "2026-01-16T10:34:52Z",
-      "updated_at": "2026-03-14T09:36:59Z",
+      "updated_at": "2026-03-14T10:49:35Z",
       "starred_at": "2026-03-11T11:24:35Z"
     },
     {
@@ -106,7 +106,7 @@
         "rust"
       ],
       "created_at": "2020-01-18T21:13:55Z",
-      "updated_at": "2026-03-14T10:11:51Z",
+      "updated_at": "2026-03-14T11:14:46Z",
       "starred_at": "2026-03-09T16:07:56Z"
     },
     {
@@ -155,7 +155,7 @@
       "html_url": "https://github.com/clockworklabs/SpacetimeDB",
       "description": "Development at the speed of light",
       "language": "Rust",
-      "stargazers_count": 23406,
+      "stargazers_count": 23411,
       "topics": [
         "database",
         "dataoriented",
@@ -167,7 +167,7 @@
         "web-framework"
       ],
       "created_at": "2023-06-17T07:28:29Z",
-      "updated_at": "2026-03-14T10:10:20Z",
+      "updated_at": "2026-03-14T11:11:55Z",
       "starred_at": "2026-03-08T14:36:56Z"
     },
     {
@@ -181,7 +181,7 @@
       "html_url": "https://github.com/shadcn-ui/ui",
       "description": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
       "language": "TypeScript",
-      "stargazers_count": 109476,
+      "stargazers_count": 109477,
       "topics": [
         "base-ui",
         "components",
@@ -196,7 +196,7 @@
         "vite"
       ],
       "created_at": "2023-01-04T12:43:27Z",
-      "updated_at": "2026-03-14T10:20:53Z",
+      "updated_at": "2026-03-14T11:12:27Z",
       "starred_at": "2026-03-06T22:14:51Z"
     },
     {
@@ -227,10 +227,10 @@
       "html_url": "https://github.com/openai/symphony",
       "description": "Symphony turns project work into isolated, autonomous implementation runs, allowing teams to manage work instead of supervising coding agents.",
       "language": "Elixir",
-      "stargazers_count": 12356,
+      "stargazers_count": 12382,
       "topics": [],
       "created_at": "2026-02-26T21:54:00Z",
-      "updated_at": "2026-03-14T10:19:37Z",
+      "updated_at": "2026-03-14T11:17:46Z",
       "starred_at": "2026-03-05T14:15:53Z"
     },
     {
@@ -244,7 +244,7 @@
       "html_url": "https://github.com/googleworkspace/cli",
       "description": "Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.",
       "language": "Rust",
-      "stargazers_count": 20115,
+      "stargazers_count": 20127,
       "topics": [
         "agent-skills",
         "ai-agent",
@@ -264,7 +264,7 @@
         "rust"
       ],
       "created_at": "2026-03-02T19:46:06Z",
-      "updated_at": "2026-03-14T10:09:48Z",
+      "updated_at": "2026-03-14T11:18:27Z",
       "starred_at": "2026-03-05T11:13:52Z"
     },
     {
@@ -278,7 +278,7 @@
       "html_url": "https://github.com/microsoft/markitdown",
       "description": "Python tool for converting files and office documents to Markdown.",
       "language": "Python",
-      "stargazers_count": 90722,
+      "stargazers_count": 90724,
       "topics": [
         "autogen",
         "autogen-extension",
@@ -289,7 +289,7 @@
         "pdf"
       ],
       "created_at": "2024-11-13T19:56:40Z",
-      "updated_at": "2026-03-14T09:38:02Z",
+      "updated_at": "2026-03-14T11:16:30Z",
       "starred_at": "2026-02-28T22:57:04Z"
     },
     {
@@ -364,7 +364,7 @@
       "html_url": "https://github.com/ultralytics/ultralytics",
       "description": "Ultralytics YOLO 🚀",
       "language": "Python",
-      "stargazers_count": 54373,
+      "stargazers_count": 54375,
       "topics": [
         "cli",
         "computer-vision",
@@ -388,7 +388,7 @@
         "yolov8"
       ],
       "created_at": "2022-09-11T16:39:45Z",
-      "updated_at": "2026-03-14T09:12:29Z",
+      "updated_at": "2026-03-14T11:18:02Z",
       "starred_at": "2026-02-28T12:18:10Z"
     },
     {
@@ -469,7 +469,7 @@
       "html_url": "https://github.com/RightNow-AI/openfang",
       "description": "Open-source Agent Operating System",
       "language": "Rust",
-      "stargazers_count": 14280,
+      "stargazers_count": 14288,
       "topics": [
         "agent-framework",
         "ai-agents",
@@ -481,7 +481,7 @@
         "rust"
       ],
       "created_at": "2026-02-24T23:12:38Z",
-      "updated_at": "2026-03-14T10:19:39Z",
+      "updated_at": "2026-03-14T11:15:56Z",
       "starred_at": "2026-02-26T10:50:36Z"
     },
     {
@@ -530,7 +530,7 @@
       "html_url": "https://github.com/D4Vinci/Scrapling",
       "description": "🕷️ An adaptive Web Scraping framework that handles everything from a single request to a full-scale crawl!",
       "language": "Python",
-      "stargazers_count": 29423,
+      "stargazers_count": 29437,
       "topics": [
         "ai",
         "ai-scraping",
@@ -554,7 +554,7 @@
         "xpath"
       ],
       "created_at": "2024-10-13T20:29:53Z",
-      "updated_at": "2026-03-14T10:16:54Z",
+      "updated_at": "2026-03-14T11:18:18Z",
       "starred_at": "2026-02-24T01:55:56Z"
     },
     {
@@ -622,10 +622,10 @@
       "html_url": "https://github.com/obra/superpowers",
       "description": "An agentic skills framework & software development methodology that works.",
       "language": "Shell",
-      "stargazers_count": 82416,
+      "stargazers_count": 82471,
       "topics": [],
       "created_at": "2025-10-09T19:45:18Z",
-      "updated_at": "2026-03-14T10:20:53Z",
+      "updated_at": "2026-03-14T11:18:29Z",
       "starred_at": "2026-02-22T22:49:37Z"
     },
     {
@@ -639,7 +639,7 @@
       "html_url": "https://github.com/qwibitai/nanoclaw",
       "description": "A lightweight alternative to OpenClaw that runs in containers for security. Connects to WhatsApp, Telegram, Slack, Discord, Gmail and other messaging apps,, has memory, scheduled jobs, and runs directly on Anthropic's Agents SDK",
       "language": "TypeScript",
-      "stargazers_count": 22674,
+      "stargazers_count": 22683,
       "topics": [
         "ai-agents",
         "ai-assistant",
@@ -648,7 +648,7 @@
         "openclaw"
       ],
       "created_at": "2026-01-31T15:47:22Z",
-      "updated_at": "2026-03-14T10:20:33Z",
+      "updated_at": "2026-03-14T11:13:42Z",
       "starred_at": "2026-02-22T17:44:03Z"
     },
     {
@@ -662,10 +662,10 @@
       "html_url": "https://github.com/HKUDS/ClawWork",
       "description": "\"ClawWork: OpenClaw as Your AI Coworker - 💰 $15K earned in 11 Hours\"",
       "language": "Python",
-      "stargazers_count": 7178,
+      "stargazers_count": 7180,
       "topics": [],
       "created_at": "2026-02-15T16:41:38Z",
-      "updated_at": "2026-03-14T07:50:14Z",
+      "updated_at": "2026-03-14T11:17:40Z",
       "starred_at": "2026-02-21T14:39:24Z"
     },
     {
@@ -702,7 +702,7 @@
       "html_url": "https://github.com/nullclaw/nullclaw",
       "description": "Fastest, smallest, and fully autonomous AI assistant infrastructure written in Zig",
       "language": "Zig",
-      "stargazers_count": 6295,
+      "stargazers_count": 6297,
       "topics": [
         "ai",
         "assistant",
@@ -710,7 +710,7 @@
         "zig"
       ],
       "created_at": "2026-02-16T21:17:27Z",
-      "updated_at": "2026-03-14T09:58:42Z",
+      "updated_at": "2026-03-14T11:02:43Z",
       "starred_at": "2026-02-20T01:35:27Z"
     },
     {
@@ -724,7 +724,7 @@
       "html_url": "https://github.com/spacedriveapp/spacebot",
       "description": "An AI agent for teams, communities, and multi-user environments.",
       "language": "Rust",
-      "stargazers_count": 1773,
+      "stargazers_count": 1775,
       "topics": [
         "agent",
         "agentic",
@@ -735,7 +735,7 @@
         "messaging"
       ],
       "created_at": "2026-02-11T23:53:16Z",
-      "updated_at": "2026-03-14T09:53:12Z",
+      "updated_at": "2026-03-14T10:45:57Z",
       "starred_at": "2026-02-18T10:51:25Z"
     },
     {
@@ -749,7 +749,7 @@
       "html_url": "https://github.com/pinchtab/pinchtab",
       "description": "High-performance browser automation bridge and multi-instance orchestrator with advanced stealth injection and real-time dashboard.",
       "language": "Go",
-      "stargazers_count": 7503,
+      "stargazers_count": 7506,
       "topics": [
         "browser-automation",
         "cdp",
@@ -760,7 +760,7 @@
         "web-scraping"
       ],
       "created_at": "2026-02-15T11:12:33Z",
-      "updated_at": "2026-03-14T10:18:48Z",
+      "updated_at": "2026-03-14T10:34:20Z",
       "starred_at": "2026-02-16T15:33:18Z"
     },
     {
@@ -852,7 +852,7 @@
       "html_url": "https://github.com/cheahjs/free-llm-api-resources",
       "description": "A list of free LLM inference resources accessible via API.",
       "language": "Python",
-      "stargazers_count": 15599,
+      "stargazers_count": 15602,
       "topics": [
         "ai",
         "claude",
@@ -862,7 +862,7 @@
         "openai"
       ],
       "created_at": "2024-07-04T20:10:17Z",
-      "updated_at": "2026-03-14T10:03:07Z",
+      "updated_at": "2026-03-14T11:15:15Z",
       "starred_at": "2026-02-12T01:34:40Z"
     },
     {
@@ -952,7 +952,7 @@
         "wysiwyg-editor"
       ],
       "created_at": "2025-07-17T10:39:46Z",
-      "updated_at": "2026-03-14T09:24:52Z",
+      "updated_at": "2026-03-14T10:38:03Z",
       "starred_at": "2026-02-10T16:58:15Z"
     },
     {
@@ -1142,14 +1142,14 @@
       "html_url": "https://github.com/remotion-dev/remotion",
       "description": "🎥      Make videos programmatically with React",
       "language": "TypeScript",
-      "stargazers_count": 39428,
+      "stargazers_count": 39432,
       "topics": [
         "javascript",
         "react",
         "video"
       ],
       "created_at": "2020-06-23T19:49:10Z",
-      "updated_at": "2026-03-14T10:05:30Z",
+      "updated_at": "2026-03-14T10:57:39Z",
       "starred_at": "2026-01-27T15:25:42Z"
     },
     {
@@ -1239,14 +1239,14 @@
       "html_url": "https://github.com/steveyegge/beads",
       "description": "Beads - A memory upgrade for your coding agent",
       "language": "Go",
-      "stargazers_count": 18996,
+      "stargazers_count": 18997,
       "topics": [
         "agents",
         "claude-code",
         "coding"
       ],
       "created_at": "2025-10-12T03:09:46Z",
-      "updated_at": "2026-03-14T10:13:36Z",
+      "updated_at": "2026-03-14T10:31:23Z",
       "starred_at": "2026-01-18T13:38:56Z"
     },
     {
@@ -1260,7 +1260,7 @@
       "html_url": "https://github.com/steipete/CodexBar",
       "description": "Show usage stats for OpenAI Codex and Claude Code, without having to login.",
       "language": "Swift",
-      "stargazers_count": 7989,
+      "stargazers_count": 7995,
       "topics": [
         "ai",
         "claude-code",
@@ -1268,7 +1268,7 @@
         "swift"
       ],
       "created_at": "2025-11-16T17:00:44Z",
-      "updated_at": "2026-03-14T10:15:06Z",
+      "updated_at": "2026-03-14T11:03:50Z",
       "starred_at": "2026-01-18T00:32:31Z"
     },
     {
@@ -1282,7 +1282,7 @@
       "html_url": "https://github.com/sardanioss/httpcloak",
       "description": "Go HTTP client with browser-identical TLS/HTTP2 fingerprinting. Bypass bot detection by perfectly mimicking Chrome, Firefox, and Safari at the cryptographic level (JA3/JA4, Akamai fingerprint, header order). Supports HTTP/1.1, HTTP/2, HTTP/3, sessions, cookies, and proxies.",
       "language": "Go",
-      "stargazers_count": 820,
+      "stargazers_count": 821,
       "topics": [
         "anti-bot",
         "bot-detection",
@@ -1306,7 +1306,7 @@
         "web-scraping"
       ],
       "created_at": "2025-12-28T22:39:27Z",
-      "updated_at": "2026-03-14T09:40:42Z",
+      "updated_at": "2026-03-14T10:26:21Z",
       "starred_at": "2026-01-16T12:27:24Z"
     },
     {
@@ -1337,10 +1337,10 @@
       "html_url": "https://github.com/0xdesign/design-plugin",
       "description": "",
       "language": "TypeScript",
-      "stargazers_count": 641,
+      "stargazers_count": 642,
       "topics": [],
       "created_at": "2026-01-15T01:46:04Z",
-      "updated_at": "2026-03-13T20:44:27Z",
+      "updated_at": "2026-03-14T11:04:59Z",
       "starred_at": "2026-01-15T10:46:32Z"
     },
     {
@@ -1394,10 +1394,10 @@
       "html_url": "https://github.com/vercel-labs/json-render",
       "description": "The Generative UI framework",
       "language": "TypeScript",
-      "stargazers_count": 12486,
+      "stargazers_count": 12493,
       "topics": [],
       "created_at": "2026-01-14T17:22:39Z",
-      "updated_at": "2026-03-14T10:16:10Z",
+      "updated_at": "2026-03-14T11:04:10Z",
       "starred_at": "2026-01-15T01:29:02Z"
     },
     {
@@ -1479,10 +1479,10 @@
       "html_url": "https://github.com/pixlcore/xyops",
       "description": "A complete workflow automation and server monitoring system.",
       "language": "JavaScript",
-      "stargazers_count": 3512,
+      "stargazers_count": 3513,
       "topics": [],
       "created_at": "2025-12-29T16:57:27Z",
-      "updated_at": "2026-03-14T08:10:32Z",
+      "updated_at": "2026-03-14T10:56:41Z",
       "starred_at": "2026-01-12T14:03:17Z"
     },
     {
@@ -1532,7 +1532,7 @@
       "html_url": "https://github.com/davila7/claude-code-templates",
       "description": "CLI tool for configuring and monitoring Claude Code",
       "language": "Python",
-      "stargazers_count": 22899,
+      "stargazers_count": 22897,
       "topics": [
         "anthropic",
         "anthropic-claude",
@@ -1540,7 +1540,7 @@
         "claude-code"
       ],
       "created_at": "2025-07-04T01:26:26Z",
-      "updated_at": "2026-03-14T10:10:34Z",
+      "updated_at": "2026-03-14T11:11:13Z",
       "starred_at": "2026-01-10T05:52:16Z"
     },
     {
@@ -1589,13 +1589,13 @@
       "html_url": "https://github.com/HKUDS/RAG-Anything",
       "description": "\"RAG-Anything: All-in-One RAG Framework\"",
       "language": "Python",
-      "stargazers_count": 14235,
+      "stargazers_count": 14236,
       "topics": [
         "multi-modal-rag",
         "retrieval-augmented-generation"
       ],
       "created_at": "2025-06-06T06:47:29Z",
-      "updated_at": "2026-03-14T10:00:28Z",
+      "updated_at": "2026-03-14T11:10:35Z",
       "starred_at": "2025-12-27T22:30:01Z"
     },
     {
@@ -1654,7 +1654,7 @@
       "html_url": "https://github.com/thedotmack/claude-mem",
       "description": "A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.",
       "language": "TypeScript",
-      "stargazers_count": 34743,
+      "stargazers_count": 34751,
       "topics": [
         "ai",
         "ai-agents",
@@ -1678,7 +1678,7 @@
         "supermemory"
       ],
       "created_at": "2025-08-31T20:50:03Z",
-      "updated_at": "2026-03-14T10:19:22Z",
+      "updated_at": "2026-03-14T11:10:18Z",
       "starred_at": "2025-12-26T16:40:57Z"
     },
     {
@@ -1692,7 +1692,7 @@
       "html_url": "https://github.com/m0n0x41d/quint-code",
       "description": "Structured reasoning framework for Claude Code, Gemini, Cursor, and Codex — hypothesis-driven decision making with auditable evidence trails",
       "language": "Go",
-      "stargazers_count": 1183,
+      "stargazers_count": 1184,
       "topics": [
         "ai-agents",
         "ai-coding",
@@ -1713,7 +1713,7 @@
         "systems-thinking"
       ],
       "created_at": "2025-12-10T19:16:51Z",
-      "updated_at": "2026-03-13T12:58:42Z",
+      "updated_at": "2026-03-14T10:23:19Z",
       "starred_at": "2025-12-26T16:40:49Z"
     },
     {
@@ -1779,7 +1779,7 @@
       "html_url": "https://github.com/vinta/awesome-python",
       "description": "An opinionated list of awesome Python frameworks, libraries, software and resources.",
       "language": "Python",
-      "stargazers_count": 287061,
+      "stargazers_count": 287063,
       "topics": [
         "awesome",
         "collections",
@@ -1789,7 +1789,7 @@
         "python-resources"
       ],
       "created_at": "2014-06-27T21:00:06Z",
-      "updated_at": "2026-03-14T10:14:51Z",
+      "updated_at": "2026-03-14T11:01:00Z",
       "starred_at": "2025-12-06T15:27:50Z"
     },
     {
@@ -1918,7 +1918,7 @@
       "html_url": "https://github.com/tonyantony300/alt-sendme",
       "description": "Send files and folders anywhere in the world without storing in cloud - any size, any format, no accounts, no restrictions.",
       "language": "TypeScript",
-      "stargazers_count": 6040,
+      "stargazers_count": 6041,
       "topics": [
         "blake3",
         "encryption",
@@ -1933,7 +1933,7 @@
         "tauri"
       ],
       "created_at": "2025-10-17T09:08:25Z",
-      "updated_at": "2026-03-14T09:44:41Z",
+      "updated_at": "2026-03-14T10:55:45Z",
       "starred_at": "2025-12-06T15:26:39Z"
     },
     {
@@ -1964,10 +1964,10 @@
       "html_url": "https://github.com/Zie619/n8n-workflows",
       "description": "all of the workflows of n8n i could find (also from the site itself)",
       "language": "Python",
-      "stargazers_count": 52891,
+      "stargazers_count": 52896,
       "topics": [],
       "created_at": "2025-05-14T08:43:59Z",
-      "updated_at": "2026-03-14T10:15:13Z",
+      "updated_at": "2026-03-14T11:17:39Z",
       "starred_at": "2025-12-06T15:26:08Z"
     },
     {
@@ -1981,7 +1981,7 @@
       "html_url": "https://github.com/VoltAgent/awesome-agent-skills",
       "description": "Claude Code Skills and 500+ agent skills from official dev teams and the community, compatible with Codex, Antigravity, Gemini CLI, Cursor and others.",
       "language": "Unknown",
-      "stargazers_count": 11193,
+      "stargazers_count": 11199,
       "topics": [
         "agent-skills",
         "ai-agents",
@@ -1999,7 +1999,7 @@
         "skills"
       ],
       "created_at": "2025-10-28T08:55:32Z",
-      "updated_at": "2026-03-14T10:07:44Z",
+      "updated_at": "2026-03-14T11:15:46Z",
       "starred_at": "2025-12-06T15:25:54Z"
     },
     {
@@ -2013,10 +2013,10 @@
       "html_url": "https://github.com/bmad-code-org/BMAD-METHOD",
       "description": "Breakthrough Method for Agile Ai Driven Development",
       "language": "JavaScript",
-      "stargazers_count": 40596,
+      "stargazers_count": 40600,
       "topics": [],
       "created_at": "2025-04-13T14:54:25Z",
-      "updated_at": "2026-03-14T10:07:31Z",
+      "updated_at": "2026-03-14T11:16:35Z",
       "starred_at": "2025-12-06T15:25:33Z"
     },
     {
@@ -2030,7 +2030,7 @@
       "html_url": "https://github.com/github/spec-kit",
       "description": "💫 Toolkit to help you get started with Spec-Driven Development",
       "language": "Python",
-      "stargazers_count": 76669,
+      "stargazers_count": 76677,
       "topics": [
         "ai",
         "copilot",
@@ -2041,7 +2041,7 @@
         "spec-driven"
       ],
       "created_at": "2025-08-21T22:54:31Z",
-      "updated_at": "2026-03-14T10:18:52Z",
+      "updated_at": "2026-03-14T10:58:14Z",
       "starred_at": "2025-11-20T22:46:45Z"
     },
     {
