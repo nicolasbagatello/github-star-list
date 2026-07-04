@@ -8,6 +8,10 @@ on:
   # Allow manual triggering
   workflow_dispatch:
 
+concurrency:
+  group: sync-stars
+  cancel-in-progress: false
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -142,6 +146,19 @@ jobs:
                 return newRepo;
               });
 
+              // Do not create a commit when only the sync timestamp would change.
+              const repositoriesChanged =
+                JSON.stringify(existingData.repositories) !== JSON.stringify(mergedRepos);
+              const metadataChanged =
+                existingData.metadata.username !== USERNAME ||
+                existingData.metadata.totalStars !== mergedRepos.length ||
+                existingData.metadata.version !== '1.0';
+
+              if (!repositoriesChanged && !metadataChanged) {
+                console.log('No repository changes detected');
+                return;
+              }
+
               // Create final data structure
               const finalData = {
                 metadata: {
@@ -186,7 +203,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add data/stars.json
-          git commit -m "chore: sync starred repositories [skip ci]"
+          git commit -m "chore: sync starred repositories"
           git push
 
       - name: Summary
