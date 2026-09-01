@@ -16,7 +16,7 @@ https://YOUR_USERNAME.github.io/github-star-list/
 
 ## ✨ Features
 
-- **🔄 Automated Sync**: Daily automatic syncing of your starred repos via GitHub Actions
+- **🔄 Automated Sync**: Syncs your starred repos every 12 hours via GitHub Actions
 - **🔍 Advanced Filtering**: Search, filter by language, topics, and custom tags
 - **🏷️ Custom Tags**: Add your own tags to organize repositories
 - **📝 Personal Notes**: Add notes to remember why you starred each repo
@@ -225,7 +225,7 @@ The app will automatically fall back to localStorage. Your Supabase credentials 
 ```
 ┌─────────────────────────────────────────────┐
 │     GitHub Actions Workflow (Scheduled)     │
-│    Runs every 8 hours (3x per day)         │
+│      Runs every 12 hours (2x per day)      │
 └─────────────────┬───────────────────────────┘
                   │
                   ▼
@@ -298,7 +298,7 @@ The app will automatically fall back to localStorage. Your Supabase credentials 
 
 ### Manual Sync
 
-The workflow runs automatically every 8 hours (at 00:00, 08:00, and 16:00 UTC), but you can trigger it manually:
+The workflow runs automatically every 12 hours (at 00:00 and 12:00 UTC), but you can trigger it manually:
 
 1. Go to the **Actions** tab
 2. Select "Sync GitHub Stars"
@@ -313,7 +313,7 @@ Edit `.github/workflows/sync-stars.yml` and change the cron expression:
 ```yaml
 on:
   schedule:
-    - cron: '0 */8 * * *'  # Every 8 hours
+    - cron: '0 */12 * * *'  # Every 12 hours
 ```
 
 Cron format: `minute hour day month weekday`
@@ -408,7 +408,7 @@ github-star-list/
 
 - **GitHub API**: 5,000 requests/hour (authenticated with PAT)
 - **Workflow**: Fetches all stars in one run (uses ~1-3 requests for pagination)
-- **Daily sync**: Well within rate limits
+- **Twice-daily sync**: Well within rate limits
 
 ## 📄 License
 

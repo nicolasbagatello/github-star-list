@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - data/stars.json
+      - index.html
+      - css/**
+      - js/**
   workflow_dispatch:
 
 permissions:
@@ -13,12 +18,15 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -29,15 +37,6 @@ jobs:
         with:
           path: .
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 12
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
